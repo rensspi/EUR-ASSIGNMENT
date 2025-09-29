@@ -1,15 +1,19 @@
 # Project Proposal Template
 
 ## Student Information
-- Name: [Your Name]
-- Student ID: [Your ID]
-- Email: [Your Email]
+- Name: Rens Spierings
+- Student ID: 792563
+- Email: rensspi@live.nl
+
+- Name: Maarten Baas
+- Student ID: 792561
+- Email: m.baas@wsrl.nl
 
 ## Business Context
 Describe the business or domain you're working with:
-- Industry: [e.g., E-commerce, Healthcare, Finance]
-- Company/Organization: [Real or hypothetical]
-- Business Problem: [What problem are you solving?]
+- Industry: Local government in water management
+- Company/Organization: Waterschap Rivierenland
+- Business Problem: Data quality of core data in our organization is unknown and unquantifiable. This makes is hard for users to 
 
 ## Data Sources
 List the data sources you plan to use:
