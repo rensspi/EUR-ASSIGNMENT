@@ -25,21 +25,21 @@ List the data sources you plan to use:
 What will your data pipeline accomplish?
 - **Primary Goal**: Quantifying data quality for three specific quality requirments. Completeness, timeliness, accuracy (spatial)
 - **Secondary Goals**: Finding spatial pattern in data quality
-- **Success Metrics**: We will define three data quality requirements to test our model. For each requirement we check usability of the results, 
+- **Success Metrics**: We will define three data quality requirements to test our model. For each requirement we check usability of the results, the reusability of the model on other objects, the use of technical resources by the model.
 
 ## Technical Approach
-- **Data Ingestion**: [How will you extract data?]
+- **Data Ingestion**: We use our ETL-software FME to read en preprocess the data.
 - **Data Processing**: [What transformations are needed?]
-- **Data Storage**: [Where will you store processed data?]
-- **Analytics/ML**: [What insights or models will you create?]
+- **Data Storage**: PostGIS-database
+- **Analytics/ML**: We will create a model which is capable of finding spatial, temporal and other patterns in our DAMO-database. 
 
 ## Timeline
 Plan your 12-week project timeline based on your chosen components:
 
-- **Week 1-3**: [Your planned activities]
-- **Week 4-6**: [Your planned activities]
-- **Week 7-9**: [Your planned activities]
-- **Week 10-12**: [Your planned activities]
+- **Week 1-3**: Writing proposal and writing off a lof of alternative ideas
+- **Week 4-6**: Determining the three specific data quality requirements to train our model on. Preproccesing the data. 
+- **Week 7-9**: Training our model and planning the pipeline
+- **Week 10-12**: Analysing the results and finishing the documentation including data visualization
 
 ## Approval
 **Instructor Approval**: _________________ **Date**: _________
