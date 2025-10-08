@@ -14,7 +14,7 @@
 Describe the business or domain you're working with:
 - Industry: Local government in water management
 - Company/Organization: Waterschap Rivierenland
-- Business Problem: Data quality of core data in our organization is unknown and unquantifiable. This makes is hard for users to assess the usability of the data. For gorvernments transparency is valued. It is guaranteed with the law 'Wet Open Overheid'. If a decision is made based on a certain dataset, other parties have the right to ask why a decision is made and based on which data. As a government you have to be able to explain how the quality is being guaranteed and based on what requirements. Checks on completeness, timeliness and accuracy are a good place to start describing data quality. To find irregular patterns in our data we can use machine learning. This way we can classify the datasets based on data quality. At least that is the idea we propose to test in this proposal.
+- Business Problem: Data quality of core data in our organization is unknown and unquantifiable. This makes is hard for users to assess the usability of the data. For gorvernments transparency is valued. It is guaranteed with the law 'Wet Open Overheid'. If a decision is made based on a certain dataset, other parties have the right to ask why a decision is made and based on which data. As a government you have to be able to explain how the quality of data is being guaranteed and based on what requirements. Checks on completeness, timeliness and accuracy are a good place to start describing data quality. To find irregular patterns in our data we can use machine learning. This way we can classify the datasets based on data quality. At least that is the idea we propose to test in this proposal.
 
 ## Data Sources
 List the data sources you plan to use:
@@ -25,7 +25,7 @@ List the data sources you plan to use:
 ## Project Objectives
 What will your data pipeline accomplish?
 - **Primary Goal**: Quantifying data quality for three specific quality requirments. Completeness, timeliness, accuracy (spatial). 
-- **Secondary Goals**: Finding spatial pattern in data quality. Added: We expect spatial patterns based on the characteristics of the system. In a polder system with high water levels you expect more waterways. However, we do not want spatial patterns due to spatial division of the area for organisational patterns. Maybe the team of area 1 measured object differently than the members of the team managing area 2. We expect these patterns to be visible in the data. 
+- **Secondary Goals**: Finding spatial pattern in data quality. Added: We expect spatial patterns based on the characteristics of the system. In a polder system with high water levels you expect more waterways. However, we do not want spatial patterns due to spatial division of the area for organisational purposes. Maybe the team of area 1 measured objects differently than the members of the team managing area 2. We expect these patterns to be visible in the data and we want to find these. 
 - **Success Metrics**: We will define three data quality requirements to test our model. For each requirement we check usability of the results, the reusability of the model on other objects, the use of technical resources by the model. We know certain objects are not managed but were filled once. These objects should be exposed by the model.
 
 ## Technical Approach
@@ -35,6 +35,8 @@ What will your data pipeline accomplish?
 - **Analytics/ML**: We will create a model which is capable of finding spatial, temporal and other patterns in our DAMO-database. 
 
 Added: We will make a copy of our production data in a PostGIS Database. Our production database is used to manage our data and contains a version management system. We don't want to interfere withthe production during this proof of concept. The data we store in the copy is a full copy of the main version of the database. By copying all features we have more trainingsdata to train for not managed but consisting data for example. The data suitable for the training model will be in a second schema within the database. 
+
+Scalability and integration: We want to end up with indicators for data quality which we can use to scan datasets for the criteria we have defined. We try to come up with a baseline classification of our data quality for DAMO. Staleness and latency are not the relevant therefore. If the model finds indicators for the criteria selected, we could these same criteria to check other datasets. The results ill be integrated in teh metadata. 
 
 ## Timeline
 Plan your 12-week project timeline based on your chosen components:
