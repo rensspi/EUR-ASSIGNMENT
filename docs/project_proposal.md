@@ -25,7 +25,7 @@ List the data sources you plan to use:
 ## Project Objectives
 What will your data pipeline accomplish?
 - **Primary Goal**: Quantifying data quality for three specific quality requirments. Completeness, timeliness, accuracy (spatial). 
-- **Secondary Goals**: Finding spatial pattern in data quality
+- **Secondary Goals**: Finding spatial pattern in data quality. Added: We expect spatial patterns based on the characteristics of the system. In a polder system with high water levels you expect more waterways. However, we do not want spatial patterns due to spatial division of the area for organisational patterns. Maybe the team of area 1 measured object differently than the members of the team managing area 2. We expect these patterns to be visible in the data. 
 - **Success Metrics**: We will define three data quality requirements to test our model. For each requirement we check usability of the results, the reusability of the model on other objects, the use of technical resources by the model. We know certain objects are not managed but were filled once. These objects should be exposed by the model.
 
 ## Technical Approach
@@ -33,6 +33,8 @@ What will your data pipeline accomplish?
 - **Data Processing**: We will convert our data to a dataset readible for the model. This means we will use a copy of the database. Some numeric fields are not ordinal. For some tests it might be necessary to apply one-hot encoding. For the ordinal fields min-max scaling might be useful. 
 - **Data Storage**: PostGIS-database. We want to use an open source alternative for the ESRI ArcSDE on Oracle database we use now. As a public organsation we want to prevent vedor locking so experiencing alternatives helps keeping options in mind. 
 - **Analytics/ML**: We will create a model which is capable of finding spatial, temporal and other patterns in our DAMO-database. 
+
+Added: We will make a copy of our production data in a PostGIS Database. Our production database is used to manage our data and contains a version management system. We don't want to interfere withthe production during this proof of concept. The data we store in the copy is a full copy of the main version of the database. By copying all features we have more trainingsdata to train for not managed but consisting data for example. The data suitable for the training model will be in a second schema within the database. 
 
 ## Timeline
 Plan your 12-week project timeline based on your chosen components:
