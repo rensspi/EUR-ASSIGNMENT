@@ -93,7 +93,7 @@ def process_history_table(input_file, output_file,
 proces_started = datetime.datetime.now()
 print('Process started at: {}'.format(proces_started))
 
-process_history_table(r"K:\CentraalDatamanagement\PDC\01_WIP\01_Algemeen\X_000002_Datakwaliteit_Baseline\DAMO_H_CSV\DAMO_W.DuikerSifonHevel_H.csv", r'C:\Users\RESP\Documents\Bronbestanden\DAMO_H_CSV\DuikerSifonHevel_last_changes_20251126.csv', file_type='csv')
+process_history_table(r"K:\CentraalDatamanagement\PDC\01_WIP\01_Algemeen\X_000002_Datakwaliteit_Baseline\DAMO_H_CSV\DAMO_W.Brug_H.csv", r'C:\Users\RESP\Documents\Bronbestanden\DAMO_H_CSV\Brug_last_changes_20251128.csv', file_type='csv')
 
 proces_ended = datetime.datetime.now()
 print('Process ended at: {}'.format(proces_ended))
