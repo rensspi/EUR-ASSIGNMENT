@@ -1,6 +1,0 @@
-transaction_id,customer_id,product_id,quantity,unit_price,total_amount,transaction_date,payment_method
-T001,1001,P100,2,29.99,59.98,2023-06-15 14:30:00,credit_card
-T002,1002,P101,1,149.99,149.99,2023-06-15 15:45:00,paypal
-T003,1003,P100,3,29.99,89.97,2023-06-16 09:20:00,debit_card
-T004,1001,P102,1,79.50,79.50,2023-06-16 11:10:00,credit_card
-T005,1004,P103,2,24.99,49.98,2023-06-17 16:25:00,bank_transfer

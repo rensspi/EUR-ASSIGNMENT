@@ -1,0 +1,14 @@
+Actualiteit
+- Script integreren in een FME-workspace 
+- Pipeline toevoegen aan FME Flow
+
+Gevuldheid
+- Checken hoever ik ben en of ik de scripts nog kan vinden > maarten
+- Mogelijk integreren in FME Flow
+
+Verkennende analyse en classificatie
+- Kijken of we dit met AI kunnen doen
+
+Data visualiseren in Story Map
+
+Verslag bijwerken.

@@ -1,7 +1,7 @@
 import fme
 from fme import BaseTransformer
 import fmeobjects
-import arcpy
+import arcpy #this is ESRI's arcpy Package, created to deal with ESRI-specific formats
 
 
 class FeatureCreator(BaseTransformer):
