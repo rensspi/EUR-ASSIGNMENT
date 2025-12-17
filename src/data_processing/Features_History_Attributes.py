@@ -1,5 +1,6 @@
 
 import pandas as pd
+import datetime
 
 def process_history_table(input_file, output_file,
                           id_col='OBJECTID',
@@ -29,7 +30,7 @@ def process_history_table(input_file, output_file,
 
     # 1. Lees bestand in
     if file_type == 'csv':
-        df = pd.read_csv(input_file, sep=';', dtype=str)
+        df = pd.read_csv(input_file, sep=',', dtype=str)
     elif file_type == 'parquet':
         df = pd.read_parquet(input_file)
     else:
@@ -81,7 +82,7 @@ def process_history_table(input_file, output_file,
             final_result[col] = pd.to_datetime(final_result[col], errors='coerce').dt.tz_localize(None)
 
     # 11. Schrijf naar Excel
-    final_result.to_excel(output_file, index=False)
+    final_result.to_csv(output_file, index=False, sep=';')
     print(f"✅ Resultaat opgeslagen in: {output_file}")
 
 
@@ -89,4 +90,13 @@ def process_history_table(input_file, output_file,
 # process_history_table("Brug_Test.csv", "Brug_last_changes.xlsx", file_type='csv')
 # process_history_table("historie.parquet", "historie_last_changes.xlsx", file_type='parquet')
 
-process_history_table(r'C:\Users\RESP\Documents\Bronbestanden\DAMO_H_CSV\Brug_Test.csv', r'C:\Users\RESP\Documents\Bronbestanden\DAMO_H_CSV\Brug_last_changes2.xlsx', file_type='csv')
+proces_started = datetime.datetime.now()
+print('Process started at: {}'.format(proces_started))
+
+process_history_table(r"K:\CentraalDatamanagement\PDC\01_WIP\01_Algemeen\X_000002_Datakwaliteit_Baseline\DAMO_H_CSV\DAMO_W.Brug_H.csv", r'C:\Users\RESP\Documents\Bronbestanden\DAMO_H_CSV\Brug_last_changes_20251128.csv', file_type='csv')
+
+proces_ended = datetime.datetime.now()
+print('Process ended at: {}'.format(proces_ended))
+
+proces_duration = proces_ended - proces_started
+print('Process duration: {}'.format(proces_duration))
