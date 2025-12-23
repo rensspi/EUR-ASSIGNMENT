@@ -31,7 +31,7 @@ def total_percentage_trues(df):
     nr_cols = len(df.columns)
     total_values = nr_rows * nr_cols
 
-    true_ratio = total_trues / total_values
+    true_ratio = float(total_trues / total_values)
     return true_ratio
 
 def return_percentage_values_column(df, column):
@@ -61,7 +61,8 @@ def return_percentage_true_column_df(df):
 
     column_dict = {}
     for column in df:
-        column_dict[column] = return_percentage_values_column(df, column)
+        if column != 'OBJECTID':  # OBJECTID overslaan
+            column_dict[column] = return_percentage_values_column(df, column)
 
     return column_dict
 
@@ -81,6 +82,33 @@ def return_percentage_true_row(df):
     
     return sum_rows_perc
 
+
+
+def return_percentage_true_row_OID(df):
+    """
+    Return {OBJECTID(str): percentage_true_per_row(float)} voor een Dask DataFrame
+    met kolom 'OBJECTID' en verder alleen booleans. OBJECTID telt niet mee in percentage.
+    """
+    # True's per rij (OBJECTID niet meenemen)
+    sum_rows_series = df.drop(columns=['OBJECTID']).eq(True).sum(axis=1).compute()
+    
+    # aantal kolommen (excl. OBJECTID)
+    nr_columns = len(df.columns) - 1
+    if nr_columns <= 0:
+        return {}
+
+    # Keys: forceer OBJECTID naar str zodat JSON altijd kan serialiseren
+    objectids_str = df['OBJECTID'].astype(str).compute().tolist()
+
+    # Values: native float (geen numpy types of Decimal)
+    percentages = (sum_rows_series / float(nr_columns)).tolist()
+    percentages = [float(p) for p in percentages]
+
+    # Bouw dict
+    return dict(zip(objectids_str, percentages))
+
+
+
 def completeness_for_parquet(parquet):
     '''
     Docstring for completeness_for_parquet
@@ -91,13 +119,16 @@ def completeness_for_parquet(parquet):
     df_actueel = df[df["GDB_TO_DATE"].isna()]
     df_boolean = df_actueel.isnull()
 
+    #OBJECTID terugzetten
+    df_boolean[["OBJECTID"]] = df_actueel[["OBJECTID"]]
+
     completeness = {}
 
     completeness["total_true_ratio"] = total_percentage_trues(df_boolean)
 
     completeness["column_true_ratio"] = return_percentage_true_column_df(df_boolean)
 
-    completeness["nulls_per_row"] = return_percentage_true_row(df_boolean)
+    completeness["nulls_per_row"] = return_percentage_true_row_OID(df_boolean)
 
     return completeness
 
@@ -109,15 +140,18 @@ def main():
     parquets = glob.glob("{}\*.parquet".format(parquet_folder))
 
     for parquet in parquets:
-        print(parquet)
-        parquet_name = os.path.split(parquet)[1]
-        pq_completeness = completeness_for_parquet(parquet)
+        try:
+            print(parquet)
+            parquet_name = os.path.split(parquet)[1]
+            pq_completeness = completeness_for_parquet(parquet)
         
-        json_naam = "{}_dict.json".format(parquet_name.removesuffix(".parquet"))
+            json_naam = "{}_dict.json".format(parquet_name.removesuffix(".parquet"))
 
-        os_naam_incpad = os.path.join(output_map, json_naam)
-        print(os_naam_incpad)
-        write_dictionary(os_naam_incpad, pq_completeness)
+            os_naam_incpad = os.path.join(output_map, json_naam)
+            print(os_naam_incpad)
+            write_dictionary(os_naam_incpad, pq_completeness)
+        except:
+            print("Faalactie: naar kijken nog! {}".format(parquet))
 
 if __name__ == "__main__":
     main()
