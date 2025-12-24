@@ -1,0 +1,1 @@
+deze folder bevat de scripts die uiteindelijk niet gebruikt zijn, maar doodlopende wegen zijn gebleken of uiteindelijk niet nodig waren in het proces. In het kader van transparantie hebben we ze wel in de repository laten zitten.
