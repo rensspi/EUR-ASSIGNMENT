@@ -1,6 +1,6 @@
 # -------------------------------------------------------------------------------------------------
 # Gemaakt door: Maarten Baas, Rens Spierings
-# Datum laatste aanpassing 24-12-2025
+# Datum laatste aanpassing 29-12-2025
 # Dit Python script is gemaakt voor het verwerken van de compleetheid-jsons tot een feature class in de file geodatabase.
 # het script is onderdeel van de eindopdracht voor de opleiding Data and AI Engineering van de EQI
 # -------------------------------------------------------------------------------------------------
@@ -10,7 +10,7 @@ import csv
 import arcpy
 import os
 import glob
-import datetime
+from datetime import datetime
 
 #input_parameters:
 csv_file_folder = r"L:\Project9\TDAM Tijdelijke Opslag\Maarten\csvs"
@@ -51,22 +51,30 @@ def create_feature_class(input_sde, input_fc, output_file_gdb, feature_class_nam
     #Dit staat er nu hard coded in, eventueel parameters van maken
     fields = arcpy.ListFields(input_fc)
     output_fields = []
+    print(fields)
 
     for field in fields:
-        if field.name != "OBJECTID":
+        if field.name not in  ("OBJECTID", "SHAPE" ,"SHAPE.LEN", "SHAPE.AREA", "GDB_FROM_DATE"):
             new_field = "{}_act".format(field.name)
+            print(new_field)
             arcpy.management.AddField(output_fc, new_field, "DATE")
             output_fields.append(new_field)
 
     return output_fc, output_fields
 
 def read_csv_to_dict(csv_file, DATE_FORMAT):
-    with open(path, encoding="utf-8-sig", newline="") as f:
+    '''
+    This function reads a csv from the previous step and makes sure the date format is read correctly
+    
+    :param csv_file: The input csv-file from the previous step
+    :param DATE_FORMAT: Het gebruikte date-format uit de FME-stap
+    '''
+    with open(csv_file, encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
         return {
             row["OBJECTID"]: {
                 k: datetime.strptime(v, DATE_FORMAT) if v.strip() else None
-                for k, v in row.items() if k != "OBJECTID"
+                for k, v in row.items() if k not in  ("OBJECTID", "SHAPE", "SHAPE.LEN", "SHAPE.AREA", "GDB_FROM_DATE")
             }
             for row in reader
         }
@@ -82,7 +90,7 @@ def fill_feature_class(input_sde, input_fc, output_fc, csv_file, output_fields):
     :param json_file: de input json_file uit het Features_Completeness_dask.py
     '''
     DATE_FORMAT = "%Y-%m-%d %H:%M:%S"  # jouw formaat
-    data = read_csv_to_dict(csv_file)
+    data = read_csv_to_dict(csv_file, DATE_FORMAT)
     
     icur_fields = ["SHAPE@"] + output_fields
 
@@ -90,8 +98,8 @@ def fill_feature_class(input_sde, input_fc, output_fc, csv_file, output_fields):
          arcpy.da.InsertCursor(output_fc, icur_fields) as icur:
         for row in scur:
             if str(row[0]) in data:
-                row_filled = []
-                for field in icur_fields:
+                row_filled = [row[1]]
+                for field in output_fields:
                     field_name = "{}_last_changed".format(field.removesuffix("_act"))
 
                     row_filled.append(data[str(row[0])][field_name])
@@ -107,6 +115,9 @@ def main():
         feature_class_name = get_fc_name(csv_file)
         print("gestart met {}".format(feature_class_name))
         input_fc = "DAMO_W.{}".format(feature_class_name)
+
+        #output_fc, output_fields = create_feature_class(input_sde, input_fc, output_file_gdb, feature_class_name)
+        #fill_feature_class(input_sde, input_fc, output_fc, csv_file, output_fields)    
 
         try:
             output_fc, output_fields = create_feature_class(input_sde, input_fc, output_file_gdb, feature_class_name)
