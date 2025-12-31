@@ -1,0 +1,893 @@
+#! <?xml version="1.0" encoding="UTF-8" ?>
+#! <WORKSPACE
+#    Command line to run this workspace:
+#        C:\apps\fme-2024\fme.exe K:\CentraalDatamanagement\PDC\01_WIP\01_Algemeen\X_000002_DatakwaliteitBaseline\20_FME\TimeCheckerAftrapscript.fmw
+#          --PARQUETFOLDER "\\wsrl.local\wsrl\Project\Project9\TDAM Tijdelijke Opslag\Maarten\Parquet"
+#          --output_csv_folder "\\wsrl.local\wsrl\Project\Project9\TDAM Tijdelijke Opslag\Maarten\Resultaten"
+#          --FME_LAUNCH_VIEWER_APP "YES"
+#    
+#!   A0_PREVIEW_IMAGE="data:image/png;base64,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"
+#!   ARCGIS_COMPATIBILITY="ARCGIS_AUTO"
+#!   ATTR_TYPE_ENCODING="SDF"
+#!   BEGIN_PYTHON=""
+#!   BEGIN_TCL=""
+#!   CATEGORY="&quot;Data Quality&quot;"
+#!   DESCRIPTION="&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Deze workspace is uiteindelijk geworden tot eentje die een lijst maakt van parquet-bestanden in een inputfolder. Vervolgens stuurt de workspace per parquet-bestand een job aan op FME Flow via de FME Flow job submitter.&lt;/p&gt;"
+#!   DESTINATION="NONE"
+#!   DESTINATION_ROUTING_FILE=""
+#!   DOC_EXTENTS="8110.35 2085.57"
+#!   DOC_TOP_LEFT="-366.275 -1616.13"
+#!   END_PYTHON=""
+#!   END_TCL=""
+#!   EXPLICIT_BOOKMARK_ORDER="false"
+#!   FME_BUILD_NUM="24831"
+#!   FME_BULK_MODE_THRESHOLD="2000"
+#!   FME_DOCUMENT_GUID="65bd9b33-dd0e-4066-843b-66bea2be3127"
+#!   FME_DOCUMENT_PRIORGUID="74047823-ab94-4bbb-ae2b-7cf9c698a5e9,af51e146-49ca-4f5a-a594-7cbd8d01c846"
+#!   FME_GEOMETRY_HANDLING="Enhanced"
+#!   FME_IMPLICIT_CSMAP_REPROJECTION_MODE="Auto"
+#!   FME_NAMES_ENCODING="UTF-8"
+#!   FME_REPROJECTION_ENGINE="FME"
+#!   FME_SERVER_SERVICES=""
+#!   FME_STROKE_MAX_DEVIATION="0"
+#!   HISTORY="23-12-2025,Maarten,Aangemaakt"
+#!   IGNORE_READER_FAILURE="No"
+#!   LAST_SAVE_BUILD="FME(R) 2024.2.4.0 (20250318 - Build 24831 - WIN64)"
+#!   LAST_SAVE_DATE="2025-12-23T16:33:06"
+#!   LOG_FILE=""
+#!   LOG_MAX_RECORDED_FEATURES="200"
+#!   MARKDOWN_DESCRIPTION=""
+#!   MARKDOWN_USAGE=""
+#!   MAX_LOG_FEATURES="200"
+#!   MULTI_WRITER_DATASET_ORDER="BY_ID"
+#!   PASSWORD=""
+#!   PYTHON_COMPATIBILITY="312"
+#!   REDIRECT_TERMINATORS="NONE"
+#!   SAVE_ON_PROMPT_AND_RUN="Yes"
+#!   SHOW_ANNOTATIONS="true"
+#!   SHOW_INFO_NODES="true"
+#!   SOURCE="NONE"
+#!   SOURCE_ROUTING_FILE=""
+#!   TERMINATE_REJECTED="YES"
+#!   TITLE="LastChangedWriter"
+#!   USAGE=""
+#!   USE_MARKDOWN="NO"
+#!   VIEW_POSITION="-1231.84 -490.557"
+#!   WARN_INVALID_XFORM_PARAM="Yes"
+#!   WORKSPACE_VERSION="1"
+#!   ZOOM_SCALE="86"
+#! >
+#! <DATASETS>
+#! </DATASETS>
+#! <DATA_TYPES>
+#! </DATA_TYPES>
+#! <GEOM_TYPES>
+#! </GEOM_TYPES>
+#! <FEATURE_TYPES>
+#! </FEATURE_TYPES>
+#! <FMESERVER>
+#! <READER_DATASETS>
+#! <DATASET
+#!   NAME="FeatureReader"
+#!   OVERRIDE="--FeatureReaderDataset_FeatureReader"
+#!   DATASET="@Value(parquet_file)"
+#! />
+#! </READER_DATASETS>
+#! <WRITER_DATASETS>
+#! <DATASET
+#!   NAME="FeatureWriter"
+#!   OVERRIDE="--FeatureWriterDataset_FeatureWriter"
+#!   DATASET="FeatureWriter/Output"
+#! />
+#! </WRITER_DATASETS>
+#! <CONNECTIONS>
+#! <CONNECTION
+#!   NAME="mba FME Flow"
+#!   TYPE="WEB"
+#!   FAMILY="FME Server"
+#!   USAGE="INTERNAL"
+#! />
+#! </CONNECTIONS>
+#! </FMESERVER>
+#! <GLOBAL_PARAMETERS>
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI DIRNAME_SRC PARQUETFOLDER parquetfolder"
+#!   DEFAULT_VALUE="\\wsrl.local\wsrl\Project\Project9\TDAM Tijdelijke Opslag\Maarten\Parquet"
+#!   IS_STAND_ALONE="true"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI DIRNAME_SRC_OR_ATTR output_csv_folder output csv folder"
+#!   DEFAULT_VALUE="\\wsrl.local\wsrl\Project\Project9\TDAM Tijdelijke Opslag\Maarten\Resultaten"
+#!   IS_STAND_ALONE="true"
+#! />
+#! </GLOBAL_PARAMETERS>
+#! <USER_PARAMETERS
+#!   FORM="eyJwYXJhbWV0ZXJzIjpbeyJuYW1lIjoiUEFSUVVFVEZPTERFUiIsInByb21wdCI6InBhcnF1ZXRmb2xkZXIiLCJzaG93UHJvbXB0Ijp0cnVlLCJ2YWx1ZVR5cGUiOiJzdHJpbmciLCJyZXF1aXJlZCI6dHJ1ZSwiZGVmYXVsdFZhbHVlIjoiXFxcXHdzcmwubG9jYWxcXHdzcmxcXFByb2plY3RcXFByb2plY3Q5XFxUREFNIFRpamRlbGlqa2UgT3BzbGFnXFxNYWFydGVuXFxQYXJxdWV0Iiwic3VwcG9ydGVkVmFsdWVUeXBlcyI6WyJnbG9iYWxQYXJhbWV0ZXIiXSwidHlwZSI6ImZpbGUiLCJzZWxlY3RNdWx0aXBsZSI6ZmFsc2UsIml0ZW1zVG9TZWxlY3QiOiJmb2xkZXJzIiwiYWNjZXNzTW9kZSI6InJlYWQiLCJ2YWxpZGF0ZUV4aXN0ZW5jZSI6dHJ1ZSwiYWxsb3dVUkwiOmZhbHNlfSx7Im5hbWUiOiJvdXRwdXRfY3N2X2ZvbGRlciIsInByb21wdCI6Im91dHB1dCBjc3YgZm9sZGVyIiwic2hvd1Byb21wdCI6dHJ1ZSwidmFsdWVUeXBlIjoic3RyaW5nIiwicmVxdWlyZWQiOnRydWUsImRlZmF1bHRWYWx1ZSI6IlxcXFx3c3JsLmxvY2FsXFx3c3JsXFxQcm9qZWN0XFxQcm9qZWN0OVxcVERBTSBUaWpkZWxpamtlIE9wc2xhZ1xcTWFhcnRlblxcUmVzdWx0YXRlbiIsInN1cHBvcnRlZFZhbHVlVHlwZXMiOlsiZXhwcmVzc2lvbiIsImdsb2JhbFBhcmFtZXRlciJdLCJ0eXBlIjoiZmlsZSIsInNlbGVjdE11bHRpcGxlIjpmYWxzZSwiaXRlbXNUb1NlbGVjdCI6ImZvbGRlcnMiLCJhY2Nlc3NNb2RlIjoicmVhZCIsInZhbGlkYXRlRXhpc3RlbmNlIjp0cnVlLCJhbGxvd1VSTCI6ZmFsc2V9XX0="
+#! >
+#! <PARAMETER_INFO>
+#!     <INFO NAME="PARQUETFOLDER" 
+#!   DEFAULT_VALUE="\\wsrl.local\wsrl\Project\Project9\TDAM Tijdelijke Opslag\Maarten\Parquet"
+#!   SCOPE="STAND_ALONE"
+#!   GENERATED_GUI_LINE="true"
+#!   GUI_LINE="GUI DIRNAME_SRC PARQUETFOLDER parquetfolder"
+#! />
+#!     <INFO NAME="output_csv_folder" 
+#!   DEFAULT_VALUE="\\wsrl.local\wsrl\Project\Project9\TDAM Tijdelijke Opslag\Maarten\Resultaten"
+#!   SCOPE="STAND_ALONE"
+#!   GENERATED_GUI_LINE="true"
+#!   GUI_LINE="GUI DIRNAME_SRC_OR_ATTR output_csv_folder output csv folder"
+#! />
+#! </PARAMETER_INFO>
+#! </USER_PARAMETERS>
+#! <COMMENTS>
+#! <COMMENT
+#!   IDENTIFIER="41"
+#!   COMMENT_VALUE="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&#10;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&#10;p, li { white-space: pre-wrap; }&#10;hr { height: 1px; border-width: 0; }&#10;li.unchecked::marker { content: &quot;\2610&quot;; }&#10;li.checked::marker { content: &quot;\2612&quot;; }&#10;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Segoe UI&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;PythonCreator_2:&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;import fme&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;from fme import BaseTransformer&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;import fmeobjects&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;import glob&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;class FeatureCreator(BaseTransformer):&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    &amp;quot;&amp;quot;&amp;quot;Template Class Interface:&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    When using this class, make sure its name is set as the value of the &apos;Class to Process Features&apos;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    transformer parameter.&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    This class inherits from &apos;fme.BaseTransformer&apos;. For full details of this class, its methods, and&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    expected usage, see &lt;a href=&quot;https://docs.safe.com/fme/html/fmepython/api/fme.html#fme.BaseTransformer.&quot;&gt;&lt;span style=&quot; text-decoration: underline;&quot;&gt;https://docs.safe.com/fme/html/fmepython/api/fme.html#fme.BaseTransformer.&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    &amp;quot;&amp;quot;&amp;quot;&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    def __init__(self):&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        &amp;quot;&amp;quot;&amp;quot;Base constructor for class members.&amp;quot;&amp;quot;&amp;quot;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        pass&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    def input(self, feature: fmeobjects.FMEFeature):&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        &amp;quot;&amp;quot;&amp;quot;This method is called once by FME to initiate feature creation.&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        Any number of features can be created and emitted by the self.pyoutput() method.&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        The initial feature argument is a placeholder and can be ignored.&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        &lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        input_folder = FME_MacroValues[&apos;PARQUETFOLDER&apos;]&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        parquets = glob.glob(&amp;quot;{}\*.parquet&amp;quot;.format(input_folder))&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        &lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        for i in parquets:&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            newFeature = fmeobjects.FMEFeature()&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            newFeature.setAttribute(&amp;quot;parquet_file&amp;quot;, i)&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            self.pyoutput(newFeature)&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    def close(self):&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        &amp;quot;&amp;quot;&amp;quot;This method is called at the end of the class.&amp;quot;&amp;quot;&amp;quot;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        pass&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"
+#!   POSITION="-366.2747026293888 469.43676281356807"
+#!   TOP_LEFT="-366.2747026293888 469.43676281356807"
+#!   BOTTOM_RIGHT="1676.0303766714042 -1485.5824873789338"
+#!   BOUNDING_RECT="-366.2747026293888 469.43676281356807 2042.3050793007931 1955.0192501925019"
+#!   ORDER="500000000000021"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="false"
+#!   CUSTOM_USER_COLOR="false"
+#!   UUID="{cc295463-7909-45b0-bdd5-b9aafbf8b35c}"
+#!   COLOUR="1,0.95686274509803926,0.80000000000000004,0.90196078431372551"
+#!   SIZE_POLICY="10"
+#!   ANCHORED_NODE="33"
+#! />
+#! </COMMENTS>
+#! <CONSTANTS>
+#! </CONSTANTS>
+#! <BOOKMARKS>
+#! </BOOKMARKS>
+#! <TRANSFORMERS>
+#! <TRANSFORMER
+#!   IDENTIFIER="3"
+#!   TYPE="FeatureReader"
+#!   VERSION="15"
+#!   POSITION="3350.0335003350019 62.847850700729055"
+#!   BOUNDING_RECT="3350.0335003350019 62.847850700729055 436 65"
+#!   ORDER="500000000000002"
+#!   PARMS_EDITED="true"
+#!   ENABLED="false"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="&lt;SCHEMA&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="parquet_file" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_feature_type_name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="attribute{}.name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="attribute{}.fme_data_type" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="attribute{}.native_data_type" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_format_short_name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_format_long_name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_schema_handling" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="&lt;OTHER&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <OUTPUT_FEAT NAME="INITIATOR"/>
+#!     <FEAT_COLLAPSED COLLAPSED="2"/>
+#!     <XFORM_ATTR ATTR_NAME="parquet_file" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <XFORM_ATTR ATTR_NAME="_matched_records" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <OUTPUT_FEAT NAME="&lt;REJECTED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="3"/>
+#!     <XFORM_ATTR ATTR_NAME="parquet_file" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <XFORM_ATTR ATTR_NAME="_reader_error" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTE_TYPES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTRS_TO_EXPOSE" PARM_VALUE="fme_basename"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_ACCUM_MODE" PARM_VALUE="Only Use Result"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_CONFLICT_RES" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_IGNORE_NULLS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_PREFIX" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="AVAILABLE_FEATURE_TYPES" PARM_VALUE="_FEATUREREADER_OPTIONAL_FTTR_"/>
+#!     <XFORM_PARM PARM_NAME="CACHE_TIMEOUT_HRS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="CLIP_TO_ENVELOPE" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="COMBINE_GEOM" PARM_VALUE="Use Result"/>
+#!     <XFORM_PARM PARM_NAME="CONSTRAINTS_GROUP" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
+#!     <XFORM_PARM PARM_NAME="COORDSYS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="DATASET" PARM_VALUE="&lt;at&gt;Value&lt;openparen&gt;parquet_file&lt;closeparen&gt;"/>
+#!     <XFORM_PARM PARM_NAME="DYNGROUP_0" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ENABLE_CACHE" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="FEATURETYPES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="FORCE_REFRESH_OUTPUTS" PARM_VALUE="on_parm_change"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT" PARM_VALUE="GEOPARQUET"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT_ATTRIBUTE_TYPES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="FORMAT_DIRECTIVES" PARM_VALUE="METAFILE,GEOPARQUET"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT_PARAMS" PARM_VALUE="GEOPARQUET_EXPOSE_ATTRS_GROUP,&quot;OPTIONAL DISCLOSUREGROUP GEOPARQUET_EXPOSE_FORMAT_ATTRS&quot;,GEOPARQUET&lt;space&gt;Schema&lt;space&gt;Attributes,GEOPARQUET_GEOPARQUET_EXPOSE_FORMAT_ATTRS,&quot;OPTIONAL LITERAL EXPOSED_ATTRS GEOPARQUET%Source&quot;,GEOPARQUET&lt;space&gt;Additional&lt;space&gt;Attributes&lt;space&gt;to&lt;space&gt;Expose:,GEOPARQUET_SUPPORT_LISTS,&quot;OPTIONAL NO_EDIT TEXT&quot;,GEOPARQUET&lt;space&gt;"/>
+#!     <XFORM_PARM PARM_NAME="FTTR_SEPARATOR" PARM_VALUE="SPACE"/>
+#!     <XFORM_PARM PARM_NAME="GENERIC_GROUP" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
+#!     <XFORM_PARM PARM_NAME="GEOMETRY_TYPES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="GEOPARQUET_EXPOSE_ATTRS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="GEOPARQUET_GEOPARQUET_EXPOSE_FORMAT_ATTRS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="GEOPARQUET_SUPPORT_LISTS" PARM_VALUE="yes"/>
+#!     <XFORM_PARM PARM_NAME="INITIATOR_FIRST_OUTPUT" PARM_VALUE="default"/>
+#!     <XFORM_PARM PARM_NAME="INTERACT" PARM_VALUE="NONE"/>
+#!     <XFORM_PARM PARM_NAME="MAX_FEATURES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="MERGE_HANDLING_GROUP" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
+#!     <XFORM_PARM PARM_NAME="ORDER_RESULTS" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUTPORTS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_ADD_SCHEMA_ATTRIBUTES" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_FEATURES_DISPLAY" PARM_VALUE="Schema and Data Features"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_FEATURES_GROUP" PARM_VALUE="FME_DISCLOSURE_CLOSED"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_PORTS_MODE" PARM_VALUE="PORTS_FROM_FTTR"/>
+#!     <XFORM_PARM PARM_NAME="PORTS_FROM_FTTR" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="READER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="READ_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="SELECTED_PORTS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="SINGLE_PORT" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="SUPPORTED_SPATIAL_INTERACTIONS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="WHERE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="FeatureReader"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="5"
+#!   TYPE="PythonCaller"
+#!   VERSION="6"
+#!   POSITION="5003.1750317503165 62.847850700729055"
+#!   BOUNDING_RECT="5003.1750317503165 62.847850700729055 436 65"
+#!   ORDER="500000000000003"
+#!   PARMS_EDITED="true"
+#!   ENABLED="false"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="&lt;Rejected&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_message" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="ADVANCED_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="GROUP_BY" PARM_VALUE="OBJECTID"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_BY_MODE" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_PROCESSING_GROUP" PARM_VALUE="YES"/>
+#!     <XFORM_PARM PARM_NAME="HIDE_ATTRIBUTES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="LIST_ATTRS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NEW_ATTRIBUTES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PYTHONSOURCE" PARM_VALUE="import&lt;space&gt;fme&lt;lf&gt;from&lt;space&gt;fme&lt;space&gt;import&lt;space&gt;BaseTransformer&lt;lf&gt;import&lt;space&gt;fmeobjects&lt;lf&gt;from&lt;space&gt;collections&lt;space&gt;import&lt;space&gt;defaultdict&lt;lf&gt;from&lt;space&gt;datetime&lt;space&gt;import&lt;space&gt;datetime&lt;lf&gt;import&lt;space&gt;csv&lt;lf&gt;import&lt;space&gt;os&lt;lf&gt;&lt;lf&gt;class&lt;space&gt;FeatureProcessor&lt;openparen&gt;BaseTransformer&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;__init__&lt;openparen&gt;self&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.feature_groups&lt;space&gt;=&lt;space&gt;defaultdict&lt;openparen&gt;list&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.output_folder&lt;space&gt;=&lt;space&gt;fme.macroValues&lt;openbracket&gt;&lt;quote&gt;output_csv_folder&lt;quote&gt;&lt;closebracket&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Retrieve&lt;space&gt;the&lt;space&gt;user&lt;space&gt;parameter&lt;space&gt;for&lt;space&gt;the&lt;space&gt;output&lt;space&gt;folder&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;input&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;feature:&lt;space&gt;fmeobjects.FMEFeature&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;object_id&lt;space&gt;=&lt;space&gt;feature.getAttribute&lt;openparen&gt;&lt;quote&gt;OBJECTID&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.feature_groups&lt;openbracket&gt;object_id&lt;closebracket&gt;.append&lt;openparen&gt;feature&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;close&lt;openparen&gt;self&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;for&lt;space&gt;object_id&lt;comma&gt;&lt;space&gt;features&lt;space&gt;in&lt;space&gt;self.feature_groups.items&lt;openparen&gt;&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Sort&lt;space&gt;features&lt;space&gt;by&lt;space&gt;GDB_FROM_DATE&lt;space&gt;in&lt;space&gt;ascending&lt;space&gt;order&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;features.sort&lt;openparen&gt;key=lambda&lt;space&gt;f:&lt;space&gt;datetime.strptime&lt;openparen&gt;f.getAttribute&lt;openparen&gt;&lt;quote&gt;GDB_FROM_DATE&lt;quote&gt;&lt;closeparen&gt;&lt;comma&gt;&lt;space&gt;&lt;quote&gt;%Y-%m-%d&lt;space&gt;%H:%M:%S&lt;quote&gt;&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Get&lt;space&gt;the&lt;space&gt;feature&lt;space&gt;with&lt;space&gt;the&lt;space&gt;latest&lt;space&gt;GDB_FROM_DATE&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;latest_feature&lt;space&gt;=&lt;space&gt;features&lt;openbracket&gt;-1&lt;closebracket&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Create&lt;space&gt;a&lt;space&gt;dictionary&lt;space&gt;to&lt;space&gt;store&lt;space&gt;the&lt;space&gt;earliest&lt;space&gt;GDB_FROM_DATE&lt;space&gt;for&lt;space&gt;each&lt;space&gt;attribute&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;last_changed_dates&lt;space&gt;=&lt;space&gt;&lt;opencurly&gt;&lt;closecurly&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;for&lt;space&gt;feature&lt;space&gt;in&lt;space&gt;features:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;for&lt;space&gt;attr&lt;space&gt;in&lt;space&gt;feature.getAllAttributeNames&lt;openparen&gt;&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;attr&lt;space&gt;not&lt;space&gt;in&lt;space&gt;&lt;openbracket&gt;&lt;quote&gt;OBJECTID&lt;quote&gt;&lt;comma&gt;&lt;space&gt;&lt;quote&gt;GDB_FROM_DATE&lt;quote&gt;&lt;closebracket&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;feature.getAttribute&lt;openparen&gt;attr&lt;closeparen&gt;&lt;space&gt;==&lt;space&gt;latest_feature.getAttribute&lt;openparen&gt;attr&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;attr&lt;space&gt;not&lt;space&gt;in&lt;space&gt;last_changed_dates:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;last_changed_dates&lt;openbracket&gt;attr&lt;closebracket&gt;&lt;space&gt;=&lt;space&gt;feature.getAttribute&lt;openparen&gt;&lt;quote&gt;GDB_FROM_DATE&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Add&lt;space&gt;the&lt;space&gt;new&lt;space&gt;attributes&lt;space&gt;to&lt;space&gt;the&lt;space&gt;latest&lt;space&gt;feature&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;for&lt;space&gt;attr&lt;comma&gt;&lt;space&gt;date&lt;space&gt;in&lt;space&gt;last_changed_dates.items&lt;openparen&gt;&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;latest_feature.setAttribute&lt;openparen&gt;f&lt;quote&gt;&lt;opencurly&gt;attr&lt;closecurly&gt;_last_changed&lt;quote&gt;&lt;comma&gt;&lt;space&gt;date&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Determine&lt;space&gt;the&lt;space&gt;basename&lt;space&gt;for&lt;space&gt;the&lt;space&gt;CSV&lt;space&gt;file&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;basename&lt;space&gt;=&lt;space&gt;latest_feature.getAttribute&lt;openparen&gt;&lt;quote&gt;fme_basename&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;not&lt;space&gt;basename:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;basename&lt;space&gt;=&lt;space&gt;&lt;quote&gt;default&lt;quote&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Prepare&lt;space&gt;the&lt;space&gt;CSV&lt;space&gt;file&lt;space&gt;path&lt;space&gt;in&lt;space&gt;the&lt;space&gt;specified&lt;space&gt;output&lt;space&gt;folder&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;csv_file_path&lt;space&gt;=&lt;space&gt;os.path.join&lt;openparen&gt;self.output_folder&lt;comma&gt;&lt;space&gt;f&lt;quote&gt;&lt;opencurly&gt;basename&lt;closecurly&gt;.csv&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Ensure&lt;space&gt;the&lt;space&gt;output&lt;space&gt;folder&lt;space&gt;exists&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;os.makedirs&lt;openparen&gt;self.output_folder&lt;comma&gt;&lt;space&gt;exist_ok=True&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Write&lt;space&gt;the&lt;space&gt;attributes&lt;space&gt;including&lt;space&gt;OBJECTID&lt;space&gt;and&lt;space&gt;those&lt;space&gt;with&lt;space&gt;the&lt;space&gt;suffix&lt;space&gt;&lt;quote&gt;_last_changed&lt;quote&gt;&lt;space&gt;to&lt;space&gt;the&lt;space&gt;CSV&lt;space&gt;file&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;with&lt;space&gt;open&lt;openparen&gt;csv_file_path&lt;comma&gt;&lt;space&gt;mode=&lt;quote&gt;a&lt;quote&gt;&lt;comma&gt;&lt;space&gt;newline=&lt;quote&gt;&lt;quote&gt;&lt;comma&gt;&lt;space&gt;encoding=&lt;quote&gt;utf-8&lt;quote&gt;&lt;closeparen&gt;&lt;space&gt;as&lt;space&gt;csv_file:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;writer&lt;space&gt;=&lt;space&gt;csv.writer&lt;openparen&gt;csv_file&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Include&lt;space&gt;OBJECTID&lt;space&gt;and&lt;space&gt;filter&lt;space&gt;attributes&lt;space&gt;with&lt;space&gt;the&lt;space&gt;suffix&lt;space&gt;&lt;quote&gt;_last_changed&lt;quote&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;last_changed_attrs&lt;space&gt;=&lt;space&gt;&lt;openbracket&gt;&lt;quote&gt;OBJECTID&lt;quote&gt;&lt;closebracket&gt;&lt;space&gt;+&lt;space&gt;&lt;openbracket&gt;attr&lt;space&gt;for&lt;space&gt;attr&lt;space&gt;in&lt;space&gt;latest_feature.getAllAttributeNames&lt;openparen&gt;&lt;closeparen&gt;&lt;space&gt;if&lt;space&gt;attr.endswith&lt;openparen&gt;&lt;quote&gt;_last_changed&lt;quote&gt;&lt;closeparen&gt;&lt;closebracket&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Write&lt;space&gt;header&lt;space&gt;if&lt;space&gt;the&lt;space&gt;file&lt;space&gt;is&lt;space&gt;empty&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;os.stat&lt;openparen&gt;csv_file_path&lt;closeparen&gt;.st_size&lt;space&gt;==&lt;space&gt;0:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;writer.writerow&lt;openparen&gt;last_changed_attrs&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Write&lt;space&gt;the&lt;space&gt;feature&lt;space&gt;attributes&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;row&lt;space&gt;=&lt;space&gt;&lt;openbracket&gt;latest_feature.getAttribute&lt;openparen&gt;attr&lt;closeparen&gt;&lt;space&gt;for&lt;space&gt;attr&lt;space&gt;in&lt;space&gt;last_changed_attrs&lt;closebracket&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;writer.writerow&lt;openparen&gt;row&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Output&lt;space&gt;the&lt;space&gt;latest&lt;space&gt;feature&lt;space&gt;with&lt;space&gt;the&lt;space&gt;new&lt;space&gt;attributes&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.pyoutput&lt;openparen&gt;latest_feature&lt;comma&gt;&lt;space&gt;output_tag=&lt;quote&gt;PYOUTPUT&lt;quote&gt;&lt;closeparen&gt;"/>
+#!     <XFORM_PARM PARM_NAME="PYTHONSYMBOL" PARM_VALUE="FeatureProcessor"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="PythonCaller"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="7"
+#!   TYPE="DateTimeConverter"
+#!   VERSION="5"
+#!   POSITION="4303.1680316803149 62.847850700729055"
+#!   BOUNDING_RECT="4303.1680316803149 62.847850700729055 436 65"
+#!   ORDER="500000000000004"
+#!   PARMS_EDITED="true"
+#!   ENABLED="false"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="&lt;REJECTED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_message" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="DATETIME_ATTR" PARM_VALUE="GDB_FROM_DATE"/>
+#!     <XFORM_PARM PARM_NAME="IN_FORMAT" PARM_VALUE="FME"/>
+#!     <XFORM_PARM PARM_NAME="OUT_FORMAT" PARM_VALUE="%Y-%m-%d&lt;space&gt;%H:%M:%S"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PASSTHROUGH" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="REFERENCE" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="REFERENCE_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="REPAIR_INPUT" PARM_VALUE="YES"/>
+#!     <XFORM_PARM PARM_NAME="TEST_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TEST_INPUT" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TEST_INPUT_GROUP" PARM_VALUE="FME_DISCLOSURE_CLOSED"/>
+#!     <XFORM_PARM PARM_NAME="TEST_RESULT" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="DateTimeConverter"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="10"
+#!   TYPE="PythonCreator"
+#!   VERSION="4"
+#!   POSITION="1916.7421403943758 397.22619448416719"
+#!   BOUNDING_RECT="1916.7421403943758 397.22619448416719 436 65"
+#!   ORDER="500000000000005"
+#!   PARMS_EDITED="true"
+#!   ENABLED="false"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="parquet_file" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="ADVANCED_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NEW_ATTRIBUTES" PARM_VALUE="parquet_file char&lt;openparen&gt;200&lt;closeparen&gt;"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PYTHONSOURCE_NEW" PARM_VALUE="import&lt;space&gt;fme&lt;lf&gt;from&lt;space&gt;fme&lt;space&gt;import&lt;space&gt;BaseTransformer&lt;lf&gt;import&lt;space&gt;fmeobjects&lt;lf&gt;import&lt;space&gt;glob&lt;lf&gt;&lt;lf&gt;&lt;lf&gt;class&lt;space&gt;FeatureCreator&lt;openparen&gt;BaseTransformer&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;Template&lt;space&gt;Class&lt;space&gt;Interface:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;When&lt;space&gt;using&lt;space&gt;this&lt;space&gt;class&lt;comma&gt;&lt;space&gt;make&lt;space&gt;sure&lt;space&gt;its&lt;space&gt;name&lt;space&gt;is&lt;space&gt;set&lt;space&gt;as&lt;space&gt;the&lt;space&gt;value&lt;space&gt;of&lt;space&gt;the&lt;space&gt;&lt;apos&gt;Class&lt;space&gt;to&lt;space&gt;Process&lt;space&gt;Features&lt;apos&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;transformer&lt;space&gt;parameter.&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;This&lt;space&gt;class&lt;space&gt;inherits&lt;space&gt;from&lt;space&gt;&lt;apos&gt;fme.BaseTransformer&lt;apos&gt;.&lt;space&gt;For&lt;space&gt;full&lt;space&gt;details&lt;space&gt;of&lt;space&gt;this&lt;space&gt;class&lt;comma&gt;&lt;space&gt;its&lt;space&gt;methods&lt;comma&gt;&lt;space&gt;and&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;expected&lt;space&gt;usage&lt;comma&gt;&lt;space&gt;see&lt;space&gt;https:&lt;solidus&gt;&lt;solidus&gt;docs.safe.com&lt;solidus&gt;fme&lt;solidus&gt;html&lt;solidus&gt;fmepython&lt;solidus&gt;api&lt;solidus&gt;fme.html#fme.BaseTransformer.&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;__init__&lt;openparen&gt;self&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;Base&lt;space&gt;constructor&lt;space&gt;for&lt;space&gt;class&lt;space&gt;members.&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;pass&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;input&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;feature:&lt;space&gt;fmeobjects.FMEFeature&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;This&lt;space&gt;method&lt;space&gt;is&lt;space&gt;called&lt;space&gt;once&lt;space&gt;by&lt;space&gt;FME&lt;space&gt;to&lt;space&gt;initiate&lt;space&gt;feature&lt;space&gt;creation.&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;Any&lt;space&gt;number&lt;space&gt;of&lt;space&gt;features&lt;space&gt;can&lt;space&gt;be&lt;space&gt;created&lt;space&gt;and&lt;space&gt;emitted&lt;space&gt;by&lt;space&gt;the&lt;space&gt;self.pyoutput&lt;openparen&gt;&lt;closeparen&gt;&lt;space&gt;method.&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;The&lt;space&gt;initial&lt;space&gt;feature&lt;space&gt;argument&lt;space&gt;is&lt;space&gt;a&lt;space&gt;placeholder&lt;space&gt;and&lt;space&gt;can&lt;space&gt;be&lt;space&gt;ignored.&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;input_folder&lt;space&gt;=&lt;space&gt;FME_MacroValues&lt;openbracket&gt;&lt;apos&gt;PARQUETFOLDER&lt;apos&gt;&lt;closebracket&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;parquets&lt;space&gt;=&lt;space&gt;glob.glob&lt;openparen&gt;&lt;quote&gt;&lt;opencurly&gt;&lt;closecurly&gt;&lt;backslash&gt;*.parquet&lt;quote&gt;.format&lt;openparen&gt;input_folder&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;for&lt;space&gt;i&lt;space&gt;in&lt;space&gt;parquets:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;newFeature&lt;space&gt;=&lt;space&gt;fmeobjects.FMEFeature&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;newFeature.setAttribute&lt;openparen&gt;&lt;quote&gt;parquet_file&lt;quote&gt;&lt;comma&gt;&lt;space&gt;i&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.pyoutput&lt;openparen&gt;newFeature&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;close&lt;openparen&gt;self&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;This&lt;space&gt;method&lt;space&gt;is&lt;space&gt;called&lt;space&gt;at&lt;space&gt;the&lt;space&gt;end&lt;space&gt;of&lt;space&gt;the&lt;space&gt;class.&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;pass&lt;lf&gt;"/>
+#!     <XFORM_PARM PARM_NAME="PYTHONSYMBOL" PARM_VALUE="FeatureCreator"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="PythonCreator"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="15"
+#!   TYPE="AttributeExposer"
+#!   VERSION="2"
+#!   POSITION="3942.2269222692212 397.22619448416719"
+#!   BOUNDING_RECT="3942.2269222692212 397.22619448416719 436 65"
+#!   ORDER="500000000000007"
+#!   PARMS_EDITED="true"
+#!   ENABLED="false"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="ATTR_LIST_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTR_TABLE" PARM_VALUE="GDB_FROM_DATE,,OBJECTID,"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="AttributeExposer"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="18"
+#!   TYPE="AttributeCreator"
+#!   VERSION="10"
+#!   POSITION="5767.3023130231295 22.222444446666486"
+#!   BOUNDING_RECT="5767.3023130231295 22.222444446666486 436 65"
+#!   ORDER="500000000000008"
+#!   PARMS_EDITED="true"
+#!   ENABLED="false"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="output_name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTE_GRP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTE_HANDLING" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTR_TABLE" PARM_VALUE="&quot;&quot; output_name SET_TO &lt;at&gt;Value&lt;openparen&gt;fme_basename&lt;closeparen&gt;_lastedited buffer"/>
+#!     <XFORM_PARM PARM_NAME="MULTI_FEATURE_MODE" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="NULL_ATTR_MODE" PARM_VALUE="NO_OP"/>
+#!     <XFORM_PARM PARM_NAME="NULL_ATTR_VALUE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="NUM_PRIOR_FEATURES" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="NUM_SUBSEQUENT_FEATURES" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="USER_MODIFIED_ATTRIBUTE_TYPES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="AttributeCreator"/>
+#!     <XFORM_PARM PARM_NAME="NULL_ATTR_MODE_DISPLAY" PARM_IS_LOOKUP="true" PARM_VALUE="No Substitution"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="20"
+#!   TYPE="FeatureWriter"
+#!   VERSION="0"
+#!   POSITION="6642.2539225392238 22.222444446666486"
+#!   BOUNDING_RECT="6642.2539225392238 22.222444446666486 436 65"
+#!   ORDER="500000000000010"
+#!   PARMS_EDITED="true"
+#!   ENABLED="false"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="SUMMARY"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_feature_types{}.count" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_feature_types{}.name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_dataset" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_total_features_written" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="COORDSYS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="DATASET" PARM_VALUE="K:&lt;backslash&gt;CentraalDatamanagement&lt;backslash&gt;PDC&lt;backslash&gt;01_WIP&lt;backslash&gt;01_Algemeen&lt;backslash&gt;X_000002_DatakwaliteitBaseline&lt;backslash&gt;DAMO_H_parquet&lt;backslash&gt;Output"/>
+#!     <XFORM_PARM PARM_NAME="DATASET_ATTR" PARM_VALUE="_dataset"/>
+#!     <XFORM_PARM PARM_NAME="DYNGROUP_0" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="FEATURE_TYPES_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="FEATURE_TYPE_LIST_ATTR" PARM_VALUE="_feature_types"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT" PARM_VALUE="GEOPARQUET"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT_DIRECTIVES" PARM_VALUE="RUNTIME_MACROS,COMPRESSION&lt;comma&gt;UNCOMPRESSED&lt;comma&gt;VERSION&lt;comma&gt;2.0&lt;comma&gt;PARTITION_GROUP&lt;comma&gt;NO&lt;comma&gt;OVERWRITE_DATASET&lt;comma&gt;&lt;lt&gt;Unused&lt;gt&gt;&lt;comma&gt;PARTITION_TYPE&lt;comma&gt;&lt;lt&gt;Unused&lt;gt&gt;&lt;comma&gt;COORDINATE_SYSTEM_GRANULARITY&lt;comma&gt;FEATURE_TYPE,METAFILE,GEOPARQUET"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT_PARAMS" PARM_VALUE="GEOPARQUET_PARTITION_GROUP,&quot;OPTIONAL ACTIVEDISCLOSUREGROUP OVERWRITE_DATASET%PARTITION_TYPE&quot;,GEOPARQUET&lt;space&gt;Partition,GEOPARQUET_COMPRESSION,&quot;OPTIONAL CHOICE UNCOMPRESSED%BROTLI%GZIP%LZ4%SNAPPY%ZSTD&quot;,GEOPARQUET&lt;space&gt;Compression&lt;space&gt;Type:,GEOPARQUET_COORDINATE_SYSTEM_GRANULARITY,&quot;OPTIONAL NO_EDIT TEXT&quot;,GEOPARQUET&lt;space&gt;,GEOPARQUET_VERSION,&quot;OPTIONAL CHOICE 2.0%1.0&quot;,GEOPARQUET&lt;space&gt;File&lt;space&gt;Version:"/>
+#!     <XFORM_PARM PARM_NAME="GEOPARQUET_COMPRESSION" PARM_VALUE="UNCOMPRESSED"/>
+#!     <XFORM_PARM PARM_NAME="GEOPARQUET_COORDINATE_SYSTEM_GRANULARITY" PARM_VALUE="FEATURE_TYPE"/>
+#!     <XFORM_PARM PARM_NAME="GEOPARQUET_PARTITION_GROUP" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="GEOPARQUET_VERSION" PARM_VALUE="2.0"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_BY" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_BY_MODE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_PROCESSING_GROUP" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="MORE_SUMMARY_ATTRS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NO_OUTPUT_PORTS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="OUTPUTPORTS_GROUP" PARM_VALUE="FME_DISCLOSURE_CLOSED"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_PORTS" PARM_VALUE="&quot;&quot;"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_PORTS_MODE" PARM_VALUE="NO_OUTPUT_PORTS"/>
+#!     <XFORM_PARM PARM_NAME="PER_EACH_INPUT" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="SELECTED_PORTS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="SUMMARY_ATTRS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TOTAL_FEATURES_WRITTEN_ATTR" PARM_VALUE="_total_features_written"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="WRITER_DIRECTIVES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="WRITER_FEATURE_TYPE_PARAMS" PARM_VALUE="&lt;at&gt;Value&lt;openparen&gt;output_name&lt;closeparen&gt;:Output,ftp_feature_type_name_exp,&lt;at&gt;Value&lt;openparen&gt;output_name&lt;closeparen&gt;,ftp_writer,GEOPARQUET,ftp_dynamic_schema,no,ftp_dynamic_feature_type_name_type,DYN_SCHEMA_PROP_AUTO,ftp_dynamic_geometry_type,DYN_SCHEMA_PROP_AUTO,ftp_dynamic_schema_def_name_type,DYN_SCHEMA_PROP_AUTO,ftp_dynamic_schema_sources,&lt;lt&gt;lt&lt;gt&gt;Unused&lt;lt&gt;gt&lt;gt&gt;,ftp_attribute_source,0,ftp_user_attributes,output_name&lt;comma&gt;string&lt;comma&gt;GDB_FROM_DATE&lt;comma&gt;string&lt;comma&gt;OBJECTID&lt;comma&gt;string,ftp_user_attribute_values,&lt;comma&gt;&lt;comma&gt;,ftp_format_attributes,fme_basename,ftp_format_parameters,parquet_partition_group&lt;comma&gt;NO&lt;comma&gt;partition_type&lt;comma&gt;&lt;lt&gt;lt&lt;gt&gt;Unused&lt;lt&gt;gt&lt;gt&gt;&lt;comma&gt;partition_attrs&lt;comma&gt;&lt;lt&gt;lt&lt;gt&gt;Unused&lt;lt&gt;gt&lt;gt&gt;&lt;comma&gt;max_partitions&lt;comma&gt;1024"/>
+#!     <XFORM_PARM PARM_NAME="WRITER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="WRITER_METAFILE" PARM_VALUE="ATTRIBUTE_CASE,ANY,ATTRIBUTE_INVALID_CHARS,&lt;quote&gt;*&lt;dollar&gt;,ATTRIBUTE_LENGTH,255,ATTR_TYPE_MAP,string&lt;comma&gt;fme_buffer&lt;comma&gt;string&lt;comma&gt;fme_char&lt;openparen&gt;width&lt;closeparen&gt;&lt;comma&gt;string&lt;comma&gt;fme_varchar&lt;openparen&gt;width&lt;closeparen&gt;&lt;comma&gt;binary&lt;comma&gt;fme_binarybuffer&lt;comma&gt;binary&lt;comma&gt;fme_binary&lt;openparen&gt;width&lt;closeparen&gt;&lt;comma&gt;binary&lt;comma&gt;fme_varbinary&lt;openparen&gt;width&lt;closeparen&gt;&lt;comma&gt;uint8&lt;comma&gt;fme_uint8&lt;comma&gt;uint16&lt;comma&gt;fme_uint16&lt;comma&gt;uint32&lt;comma&gt;fme_uint32&lt;comma&gt;uint64&lt;comma&gt;fme_uint64&lt;comma&gt;int8&lt;comma&gt;fme_int8&lt;comma&gt;int16&lt;comma&gt;fme_int16&lt;comma&gt;int32&lt;comma&gt;fme_int32&lt;comma&gt;int64&lt;comma&gt;fme_int64&lt;comma&gt;float&lt;comma&gt;fme_real32&lt;comma&gt;double&lt;comma&gt;fme_real64&lt;comma&gt;x_coordinate&lt;comma&gt;fme_real64&lt;comma&gt;y_coordinate&lt;comma&gt;fme_real64&lt;comma&gt;z_coordinate&lt;comma&gt;fme_real64&lt;comma&gt;&lt;quote&gt;decimal&lt;openparen&gt;width&lt;comma&gt;decimal&lt;closeparen&gt;&lt;quote&gt;&lt;comma&gt;&lt;quote&gt;fme_decimal&lt;openparen&gt;width&lt;comma&gt;decimal&lt;closeparen&gt;&lt;quote&gt;&lt;comma&gt;boolean&lt;comma&gt;fme_boolean&lt;comma&gt;date&lt;comma&gt;fme_date&lt;comma&gt;time_nano&lt;comma&gt;fme_time&lt;comma&gt;time_micro&lt;comma&gt;fme_time&lt;comma&gt;time_milli&lt;comma&gt;fme_time&lt;comma&gt;time64&lt;comma&gt;fme_time&lt;comma&gt;time32&lt;comma&gt;fme_time&lt;comma&gt;timestamp_nano&lt;comma&gt;fme_datetime&lt;comma&gt;timestamp_micro&lt;comma&gt;fme_datetime&lt;comma&gt;timestamp_milli&lt;comma&gt;fme_datetime&lt;comma&gt;timestamp&lt;comma&gt;fme_datetime&lt;comma&gt;interval&lt;comma&gt;fme_buffer&lt;comma&gt;uuid&lt;comma&gt;fme_buffer&lt;comma&gt;enum&lt;comma&gt;fme_buffer&lt;comma&gt;json&lt;comma&gt;fme_json&lt;comma&gt;bson&lt;comma&gt;fme_binarybuffer&lt;comma&gt;string&lt;comma&gt;fme_xml&lt;comma&gt;geometry&lt;comma&gt;fme_binarybuffer,DEST_ILLEGAL_ATTR_LIST,,FEATURE_TYPE_CASE,ANY,FEATURE_TYPE_INVALID_CHARS,&lt;solidus&gt;&lt;quote&gt;:?*&lt;lt&gt;&lt;gt&gt;|,FEATURE_TYPE_LENGTH,255,FEATURE_TYPE_LENGTH_INCLUDES_PREFIX,false,FEATURE_TYPE_RESERVED_WORDS,,FORMAT_METAFILE,$(FME_HOME_ENCODED)metafile&lt;backslash&gt;GEOPARQUET.fmf,FORMAT_NAME,GEOPARQUET,GEOM_MAP,parquet_multipoint&lt;comma&gt;fme_point&lt;comma&gt;parquet_point&lt;comma&gt;fme_point&lt;comma&gt;parquet_multipoint&lt;comma&gt;fme_text&lt;comma&gt;parquet_multilinestring&lt;comma&gt;fme_line&lt;comma&gt;parquet_linestring&lt;comma&gt;fme_line&lt;comma&gt;parquet_multilinestring&lt;comma&gt;fme_arc&lt;comma&gt;parquet_multilinestring&lt;comma&gt;fme_solid&lt;comma&gt;parquet_multilinestring&lt;comma&gt;fme_surface&lt;comma&gt;parquet_multipolygon&lt;comma&gt;fme_polygon&lt;comma&gt;parquet_polygon&lt;comma&gt;fme_polygon&lt;comma&gt;parquet_multipolygon&lt;comma&gt;fme_ellipse&lt;comma&gt;parquet_multipolygon&lt;comma&gt;fme_rectangle&lt;comma&gt;parquet_multipolygon&lt;comma&gt;fme_rounded_rectangle&lt;comma&gt;parquet_multipolygon&lt;comma&gt;fme_raster&lt;comma&gt;parquet_multipolygon&lt;comma&gt;fme_point_cloud&lt;comma&gt;parquet_multipolygon&lt;comma&gt;fme_voxel_grid&lt;comma&gt;parquet_geometrycollection&lt;comma&gt;fme_collection&lt;comma&gt;parquet_none&lt;comma&gt;fme_no_geom,READER_ATTR_INDEX_TYPES,,READER_FORMAT_TYPE,DYNAMIC,READER_USES_DEF,yes,SOURCE,no,SUPPORTS_FEAT_TYPE_FANOUT,yes,SUPPORTS_MULTI_GEOM,yes,WORKBENCH_CANNED_SCHEMA,,WRITER,GEOPARQUET,WRITER_ATTR_INDEX_TYPES,,WRITER_DEFLINE_PARMS,&lt;quote&gt;GUI&lt;space&gt;ACTIVEDISCLOSUREGROUP&lt;space&gt;parquet_partition_group&lt;space&gt;partition_type%partition_attrs%max_partitions&lt;space&gt;Partition&lt;quote&gt;&lt;comma&gt;NO&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;LOOKUP_CHOICE&lt;space&gt;partition_type&lt;space&gt;Directory&lt;comma&gt;DIRECTORY%Hive&lt;comma&gt;HIVE&lt;space&gt;Partition&lt;space&gt;Type&lt;quote&gt;&lt;comma&gt;&lt;lt&gt;Unused&lt;gt&gt;&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;ATTRLIST_ENCODED&lt;space&gt;partition_attrs&lt;space&gt;NO_EXPAND_LIST&lt;space&gt;Partition&lt;space&gt;Attributes&lt;quote&gt;&lt;comma&gt;&lt;lt&gt;Unused&lt;gt&gt;&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;INTEGER&lt;space&gt;max_partitions&lt;space&gt;Maximum&lt;space&gt;Number&lt;space&gt;of&lt;space&gt;Partitions&lt;quote&gt;&lt;comma&gt;1024,WRITER_DEF_LINE_TEMPLATE,&lt;opencurly&gt;FME_GEN_GROUP_NAME&lt;closecurly&gt;&lt;comma&gt;parquet_type&lt;comma&gt;parquet_none&lt;comma&gt;parquet_partition_group&lt;comma&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;NO&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;comma&gt;partition_type&lt;comma&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;lt&gt;Unused&lt;gt&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;comma&gt;partition_attrs&lt;comma&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;comma&gt;max_partitions&lt;comma&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;1024&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;,WRITER_FORMAT_PARAMETER,ALLOW_DATASET_CONFLICT&lt;comma&gt;YES&lt;comma&gt;NETWORK_AUTHENTICATION&lt;comma&gt;YES&lt;comma&gt;ATTRIBUTE_READING&lt;comma&gt;DEFLINE&lt;comma&gt;SUPPORTS_SCHEMA_IN_FEATURE_TYPE_NAME&lt;comma&gt;NO&lt;comma&gt;FEATURE_TYPE_DEFAULT_NAME&lt;comma&gt;geoparquet&lt;comma&gt;READER_DATASET_HINT&lt;comma&gt;&lt;quote&gt;Select&lt;space&gt;the&lt;space&gt;GeoParquet&lt;space&gt;file&lt;openparen&gt;s&lt;closeparen&gt;&lt;quote&gt;&lt;comma&gt;WRITER_DATASET_HINT&lt;comma&gt;&lt;quote&gt;Specify&lt;space&gt;a&lt;space&gt;folder&lt;space&gt;for&lt;space&gt;the&lt;space&gt;GeoParquet&lt;space&gt;file&lt;quote&gt;,WRITER_FORMAT_TYPE,DYNAMIC,WRITER_HAS_DEFLINE_ATTRS,yes,WRITER_USES_DEF,yes"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="FeatureWriter"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="26"
+#!   TYPE="ListBuilder"
+#!   VERSION="3"
+#!   POSITION="6312.2982924744474 283.66573684569232"
+#!   BOUNDING_RECT="6312.2982924744474 283.66573684569232 436 65"
+#!   ORDER="500000000000013"
+#!   PARMS_EDITED="true"
+#!   ENABLED="false"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_list{}.output_name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_list{}.fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_list{}.GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_list{}.OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="GROUP_BY" PARM_VALUE="OBJECTID"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_BY_MODE" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_PROCESSING_GROUP" PARM_VALUE="YES"/>
+#!     <XFORM_PARM PARM_NAME="LIST_ATTRS_TO_INCLUDE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="LIST_ATTRS_TO_INCLUDE_MODE_LU" PARM_VALUE="ALL"/>
+#!     <XFORM_PARM PARM_NAME="LIST_NAME" PARM_VALUE="_list"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="ListBuilder"/>
+#!     <XFORM_PARM PARM_NAME="LIST_ATTRS_TO_INCLUDE_MODE" PARM_IS_LOOKUP="true" PARM_VALUE="All Attributes"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="28"
+#!   TYPE="ListExploder"
+#!   VERSION="6"
+#!   POSITION="7308.0709620655498 -126.82565620383139"
+#!   BOUNDING_RECT="7308.0709620655498 -126.82565620383139 436 65"
+#!   ORDER="500000000000015"
+#!   PARMS_EDITED="true"
+#!   ENABLED="false"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="ELEMENTS"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="output_name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_concatenated" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="0" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="&lt;REJECTED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="output_name" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_concatenated" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="ATTR_ACCUM_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTR_ACCUM_MODE" PARM_VALUE="Merge List Attributes"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_CONFLICT_RES_LOOKUP" PARM_VALUE="INCOMING_IF_CONFLICT"/>
+#!     <XFORM_PARM PARM_NAME="INCOMING_PREFIX" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="INDEX_ATTR" PARM_VALUE="0"/>
+#!     <XFORM_PARM PARM_NAME="LIST_ATTR" PARM_VALUE="_list{}"/>
+#!     <XFORM_PARM PARM_NAME="OAN_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="ListExploder"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_CONFLICT_RES" PARM_IS_LOOKUP="true" PARM_VALUE="Use List Attribute Values"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="24"
+#!   TYPE="ListConcatenator"
+#!   VERSION="4"
+#!   POSITION="6949.2220345932228 247.84785070072905"
+#!   BOUNDING_RECT="6949.2220345932228 247.84785070072905 436 65"
+#!   ORDER="500000000000017"
+#!   PARMS_EDITED="true"
+#!   ENABLED="false"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_list{}.output_name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_list{}.fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_list{}.GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_list{}.OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_concatenated" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="DROP_EMPTY_PARTS" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="LIST_ATTR" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="OAN_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="SEP" PARM_VALUE=","/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="VAL_ATTR" PARM_VALUE="_concatenated"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="ListConcatenator"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="29"
+#!   TYPE="Sampler"
+#!   VERSION="5"
+#!   POSITION="2503.0655711962518 -57.152149299270832"
+#!   BOUNDING_RECT="2503.0655711962518 -57.152149299270832 436 65"
+#!   ORDER="500000000000018"
+#!   PARMS_EDITED="true"
+#!   ENABLED="false"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="SAMPLED"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="parquet_file" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="NOT_SAMPLED"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="parquet_file" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="GROUP_BY" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_BY_MODE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_PROCESSING_GROUP" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="MODE" PARM_VALUE="ORIGINAL"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="RATE" PARM_VALUE="10"/>
+#!     <XFORM_PARM PARM_NAME="SAMPLE_TYPE_MULTIPLIER" PARM_VALUE="1"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="Sampler_2"/>
+#!     <XFORM_PARM PARM_NAME="SAMPLE_MODE" PARM_IS_LOOKUP="true" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="SAMPLE_TYPE_LONG" PARM_IS_LOOKUP="true" PARM_VALUE="Every Nth Feature"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="32"
+#!   TYPE="FMEFlowJobSubmitter"
+#!   VERSION="5"
+#!   POSITION="1075.9398134521878 -1551.1308909110173"
+#!   BOUNDING_RECT="1075.9398134521878 -1551.1308909110173 561 65"
+#!   ORDER="500000000000019"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="JOB_SUBMITTED"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="parquet_file" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_job_id" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="SUMMARY"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="parquet_file" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_submitted_job_ids{}" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_succeeded_job_ids{}" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_failed_job_ids{}" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <OUTPUT_FEAT NAME="&lt;REJECTED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="2"/>
+#!     <XFORM_ATTR ATTR_NAME="parquet_file" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_message" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <XFORM_PARM PARM_NAME="ACTION" PARM_VALUE="SUBMIT_JOB"/>
+#!     <XFORM_PARM PARM_NAME="ADVANCED_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="BLOCKING" PARM_VALUE="FALSE"/>
+#!     <XFORM_PARM PARM_NAME="CONNECTION_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="EMBED_CONNECTION_GROUP" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="JOB_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="LAST_KNOWN_PARAM_DEFS" PARM_VALUE="eyJwYXJhbWV0ZXJzIjpbeyJuYW1lIjoib3V0cHV0X2Nzdl9mb2xkZXIiLCJwcm9tcHQiOiJvdXRwdXQgY3N2IGZvbGRlciIsInNob3dQcm9tcHQiOnRydWUsInZhbHVlVHlwZSI6InN0cmluZyIsInJlcXVpcmVkIjp0cnVlLCJkZWZhdWx0VmFsdWUiOiJLOlxcQ2VudHJhYWxEYXRhbWFuYWdlbWVudFxcUERDXFwwMV9XSVBcXDAxX0FsZ2VtZWVuXFxYXzAwMDAwMl9EYXRha3dhbGl0ZWl0QmFzZWxpbmVcXDcwX1Jlc3VsdGF0ZW4iLCJ0eXBlIjoiZmlsZSIsInNlbGVjdE11bHRpcGxlIjpmYWxzZSwiaXRlbXNUb1NlbGVjdCI6ImZvbGRlcnMiLCJhY2Nlc3NNb2RlIjoicmVhZCIsInZhbGlkYXRlRXhpc3RlbmNlIjpmYWxzZSwiYWxsb3dVUkwiOmZhbHNlfSx7Im5hbWUiOiJwYXJxdWV0X2ZpbGUiLCJwcm9tcHQiOiJTZWxlY3QgYSBwYXJxdWV0IGZpbGUiLCJzaG93UHJvbXB0Ijp0cnVlLCJ2YWx1ZVR5cGUiOiJzdHJpbmciLCJyZXF1aXJlZCI6dHJ1ZSwiZGVmYXVsdFZhbHVlIjoiIiwic3VwcG9ydGVkVmFsdWVUeXBlcyI6WyJleHByZXNzaW9uIiwiZ2xvYmFsUGFyYW1ldGVyIl0sInR5cGUiOiJmaWxlIiwic2VsZWN0TXVsdGlwbGUiOmZhbHNlLCJpdGVtc1RvU2VsZWN0IjoiZmlsZXMiLCJhY2Nlc3NNb2RlIjoicmVhZCIsInZhbGlkYXRlRXhpc3RlbmNlIjpmYWxzZX1dfQ=="/>
+#!     <XFORM_PARM PARM_NAME="MESSAGE" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PASSWORD" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="PROCESSING_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="REPOSITORY" PARM_VALUE="BaselineDatakwaliteit"/>
+#!     <XFORM_PARM PARM_NAME="SERVER_CONNECTION" PARM_VALUE="mba&lt;space&gt;FME&lt;space&gt;Flow"/>
+#!     <XFORM_PARM PARM_NAME="SERVER_NAME" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="TM_TAG" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TM_TTC" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TM_TTL" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="USERNAME" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="WORKSPACE_NAME" PARM_VALUE="ActualiteitChecker.fmw"/>
+#!     <XFORM_PARM PARM_NAME="WORKSPACE_PARAMETERS" PARM_VALUE="output_csv_folder string $(output_csv_folder) parquet_file string &lt;at&gt;Value&lt;openparen&gt;parquet_file&lt;closeparen&gt;"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="FMEFlowJobSubmitter"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="33"
+#!   TYPE="PythonCreator"
+#!   VERSION="4"
+#!   POSITION="-247.56105303043051 -1551.1308909110173"
+#!   BOUNDING_RECT="-247.56105303043051 -1551.1308909110173 436 65"
+#!   ORDER="500000000000005"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="parquet_file" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="ADVANCED_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NEW_ATTRIBUTES" PARM_VALUE="parquet_file char&lt;openparen&gt;200&lt;closeparen&gt;"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PYTHONSOURCE_NEW" PARM_VALUE="import&lt;space&gt;fme&lt;lf&gt;from&lt;space&gt;fme&lt;space&gt;import&lt;space&gt;BaseTransformer&lt;lf&gt;import&lt;space&gt;fmeobjects&lt;lf&gt;import&lt;space&gt;glob&lt;lf&gt;&lt;lf&gt;&lt;lf&gt;class&lt;space&gt;FeatureCreator&lt;openparen&gt;BaseTransformer&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;Template&lt;space&gt;Class&lt;space&gt;Interface:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;When&lt;space&gt;using&lt;space&gt;this&lt;space&gt;class&lt;comma&gt;&lt;space&gt;make&lt;space&gt;sure&lt;space&gt;its&lt;space&gt;name&lt;space&gt;is&lt;space&gt;set&lt;space&gt;as&lt;space&gt;the&lt;space&gt;value&lt;space&gt;of&lt;space&gt;the&lt;space&gt;&lt;apos&gt;Class&lt;space&gt;to&lt;space&gt;Process&lt;space&gt;Features&lt;apos&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;transformer&lt;space&gt;parameter.&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;This&lt;space&gt;class&lt;space&gt;inherits&lt;space&gt;from&lt;space&gt;&lt;apos&gt;fme.BaseTransformer&lt;apos&gt;.&lt;space&gt;For&lt;space&gt;full&lt;space&gt;details&lt;space&gt;of&lt;space&gt;this&lt;space&gt;class&lt;comma&gt;&lt;space&gt;its&lt;space&gt;methods&lt;comma&gt;&lt;space&gt;and&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;expected&lt;space&gt;usage&lt;comma&gt;&lt;space&gt;see&lt;space&gt;https:&lt;solidus&gt;&lt;solidus&gt;docs.safe.com&lt;solidus&gt;fme&lt;solidus&gt;html&lt;solidus&gt;fmepython&lt;solidus&gt;api&lt;solidus&gt;fme.html#fme.BaseTransformer.&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;__init__&lt;openparen&gt;self&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;Base&lt;space&gt;constructor&lt;space&gt;for&lt;space&gt;class&lt;space&gt;members.&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;pass&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;input&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;feature:&lt;space&gt;fmeobjects.FMEFeature&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;This&lt;space&gt;method&lt;space&gt;is&lt;space&gt;called&lt;space&gt;once&lt;space&gt;by&lt;space&gt;FME&lt;space&gt;to&lt;space&gt;initiate&lt;space&gt;feature&lt;space&gt;creation.&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;Any&lt;space&gt;number&lt;space&gt;of&lt;space&gt;features&lt;space&gt;can&lt;space&gt;be&lt;space&gt;created&lt;space&gt;and&lt;space&gt;emitted&lt;space&gt;by&lt;space&gt;the&lt;space&gt;self.pyoutput&lt;openparen&gt;&lt;closeparen&gt;&lt;space&gt;method.&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;The&lt;space&gt;initial&lt;space&gt;feature&lt;space&gt;argument&lt;space&gt;is&lt;space&gt;a&lt;space&gt;placeholder&lt;space&gt;and&lt;space&gt;can&lt;space&gt;be&lt;space&gt;ignored.&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;input_folder&lt;space&gt;=&lt;space&gt;FME_MacroValues&lt;openbracket&gt;&lt;apos&gt;PARQUETFOLDER&lt;apos&gt;&lt;closebracket&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;parquets&lt;space&gt;=&lt;space&gt;glob.glob&lt;openparen&gt;&lt;quote&gt;&lt;opencurly&gt;&lt;closecurly&gt;&lt;backslash&gt;*.parquet&lt;quote&gt;.format&lt;openparen&gt;input_folder&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;for&lt;space&gt;i&lt;space&gt;in&lt;space&gt;parquets:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;newFeature&lt;space&gt;=&lt;space&gt;fmeobjects.FMEFeature&lt;openparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;newFeature.setAttribute&lt;openparen&gt;&lt;quote&gt;parquet_file&lt;quote&gt;&lt;comma&gt;&lt;space&gt;i&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.pyoutput&lt;openparen&gt;newFeature&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;close&lt;openparen&gt;self&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;This&lt;space&gt;method&lt;space&gt;is&lt;space&gt;called&lt;space&gt;at&lt;space&gt;the&lt;space&gt;end&lt;space&gt;of&lt;space&gt;the&lt;space&gt;class.&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;pass&lt;lf&gt;"/>
+#!     <XFORM_PARM PARM_NAME="PYTHONSYMBOL" PARM_VALUE="FeatureCreator"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="PythonCreator_2"/>
+#! </TRANSFORMER>
+#! </TRANSFORMERS>
+#! <FEAT_LINKS>
+#! <FEAT_LINK
+#!   IDENTIFIER="36"
+#!   SOURCE_NODE="10"
+#!   TARGET_NODE="29"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="false"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="35"
+#!   SOURCE_NODE="10"
+#!   TARGET_NODE="3"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 INITIATOR"
+#!   ENABLED="false"
+#!   EXECUTION_IDX="1"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="43"
+#!   SOURCE_NODE="33"
+#!   TARGET_NODE="32"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="19"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="18"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="9"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="5"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="false"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="17"
+#!   SOURCE_NODE="15"
+#!   TARGET_NODE="7"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="false"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="21"
+#!   SOURCE_NODE="18"
+#!   TARGET_NODE="20"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 Output"
+#!   ENABLED="false"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="27"
+#!   SOURCE_NODE="18"
+#!   TARGET_NODE="26"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="false"
+#!   EXECUTION_IDX="1"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="30"
+#!   SOURCE_NODE="24"
+#!   TARGET_NODE="28"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="false"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="25"
+#!   SOURCE_NODE="26"
+#!   TARGET_NODE="24"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="false"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="16"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="15"
+#!   SOURCE_PORT_DESC="fo 1 &lt;lt&gt;OTHER&lt;gt&gt;"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="false"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! </FEAT_LINKS>
+#! <BREAKPOINTS>
+#! </BREAKPOINTS>
+#! <ATTR_LINKS>
+#! </ATTR_LINKS>
+#! <SUBDOCUMENTS>
+#! </SUBDOCUMENTS>
+#! <LOOKUP_TABLES>
+#! </LOOKUP_TABLES>
+#! </WORKSPACE>
+
+FME_PYTHON_VERSION 312
+ARCGIS_COMPATIBILITY ARCGIS_AUTO
+# ============================================================================
+DEFAULT_MACRO PARQUETFOLDER \\wsrl.local\wsrl\Project\Project9\TDAM Tijdelijke Opslag\Maarten\Parquet
+
+DEFAULT_MACRO output_csv_folder \\wsrl.local\wsrl\Project\Project9\TDAM Tijdelijke Opslag\Maarten\Resultaten
+
+# ============================================================================
+INCLUDE [ if {{$(PARQUETFOLDER$encode)} == {}} { puts_real {Parameter 'PARQUETFOLDER' must be given a value.}; exit 1; }; ]
+INCLUDE [ if {{$(output_csv_folder$encode)} == {}} { puts_real {Parameter 'output_csv_folder' must be given a value.}; exit 1; }; ]
+#! START_HEADER
+#! START_WB_HEADER
+READER_TYPE MULTI_READER
+WRITER_TYPE MULTI_WRITER
+WRITER_KEYWORD MULTI_DEST
+MULTI_DEST_DATASET null
+#! END_WB_HEADER
+#! START_WB_HEADER
+#! END_WB_HEADER
+#! END_HEADER
+
+LOG_FILENAME "$(FME_MF_DIR)$(WORKSPACE_NAME).log"
+LOG_APPEND NO
+LOG_MAX_FEATURES 200
+LOG_MAX_RECORDED_FEATURES 200
+FME_REPROJECTION_ENGINE FME
+FME_IMPLICIT_CSMAP_REPROJECTION_MODE Auto
+FME_GEOMETRY_HANDLING Enhanced
+FME_STROKE_MAX_DEVIATION 0
+FME_NAMES_ENCODING UTF-8
+FME_BULK_MODE_THRESHOLD 2000
+LAST_SAVE_BUILD "FME 2024.2.4.0 (20250318 - Build 24831 - WIN64)"
+MAPPING_FILE_ID LastChangedWriter
+# -------------------------------------------------------------------------
+
+MULTI_READER_CONTINUE_ON_READER_FAILURE No
+
+# -------------------------------------------------------------------------
+
+MACRO FME_VIEWER_APP fmedatainspector
+DEFAULT_MACRO WB_CURRENT_CONTEXT
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "PythonCreator_OUTPUT_0_bMFgs3D7NQo= Disabled Nuker -1 36"   INPUT FEATURE_TYPE PythonCreator_OUTPUT_0_bMFgs3D7NQo=   NO_LOGGING 
+FACTORY_DEF * TeeFactory   FACTORY_NAME "PythonCreator_OUTPUT_1_SC/8pGzemNA= Disabled Nuker -1 35"   INPUT FEATURE_TYPE PythonCreator_OUTPUT_1_SC/8pGzemNA=   NO_LOGGING 
+# -------------------------------------------------------------------------
+FME_PYTHON_PATH "$(FME_MF_DIR)"
+FACTORY_DEF {*} CreationFactory    FACTORY_NAME { PythonCreator_2_Creator }    OUTPUT { FEATURE_TYPE _____CREATED_PYTHON__ }
+FACTORY_DEF {*} PythonFactory    FACTORY_NAME { PythonCreator_2 }    INPUT FEATURE_TYPE _____CREATED_PYTHON__    SYMBOL_NAME { FeatureCreator }    SOURCE_CODE { import<space>fme<lf>from<space>fme<space>import<space>BaseTransformer<lf>import<space>fmeobjects<lf>import<space>glob<lf><lf><lf>class<space>FeatureCreator<openparen>BaseTransformer<closeparen>:<lf><space><space><space><space><quote><quote><quote>Template<space>Class<space>Interface:<lf><space><space><space><space>When<space>using<space>this<space>class<comma><space>make<space>sure<space>its<space>name<space>is<space>set<space>as<space>the<space>value<space>of<space>the<space><apos>Class<space>to<space>Process<space>Features<apos><lf><space><space><space><space>transformer<space>parameter.<lf><lf><space><space><space><space>This<space>class<space>inherits<space>from<space><apos>fme.BaseTransformer<apos>.<space>For<space>full<space>details<space>of<space>this<space>class<comma><space>its<space>methods<comma><space>and<lf><space><space><space><space>expected<space>usage<comma><space>see<space>https:<solidus><solidus>docs.safe.com<solidus>fme<solidus>html<solidus>fmepython<solidus>api<solidus>fme.html#fme.BaseTransformer.<lf><space><space><space><space><quote><quote><quote><lf><lf><space><space><space><space>def<space>__init__<openparen>self<closeparen>:<lf><space><space><space><space><space><space><space><space><quote><quote><quote>Base<space>constructor<space>for<space>class<space>members.<quote><quote><quote><lf><space><space><space><space><space><space><space><space>pass<lf><lf><space><space><space><space>def<space>input<openparen>self<comma><space>feature:<space>fmeobjects.FMEFeature<closeparen>:<lf><space><space><space><space><space><space><space><space><quote><quote><quote>This<space>method<space>is<space>called<space>once<space>by<space>FME<space>to<space>initiate<space>feature<space>creation.<lf><space><space><space><space><space><space><space><space>Any<space>number<space>of<space>features<space>can<space>be<space>created<space>and<space>emitted<space>by<space>the<space>self.pyoutput<openparen><closeparen><space>method.<lf><space><space><space><space><space><space><space><space>The<space>initial<space>feature<space>argument<space>is<space>a<space>placeholder<space>and<space>can<space>be<space>ignored.<lf><space><space><space><space><space><space><space><space><quote><quote><quote><lf><space><space><space><space><space><space><space><space><lf><space><space><space><space><space><space><space><space>input_folder<space>=<space>FME_MacroValues<openbracket><apos>PARQUETFOLDER<apos><closebracket><lf><space><space><space><space><space><space><space><space>parquets<space>=<space>glob.glob<openparen><quote><opencurly><closecurly><backslash>*.parquet<quote>.format<openparen>input_folder<closeparen><closeparen><lf><space><space><space><space><space><space><space><space><lf><space><space><space><space><space><space><space><space>for<space>i<space>in<space>parquets:<lf><space><space><space><space><space><space><space><space><space><space><space><space>newFeature<space>=<space>fmeobjects.FMEFeature<openparen><closeparen><lf><space><space><space><space><space><space><space><space><space><space><space><space>newFeature.setAttribute<openparen><quote>parquet_file<quote><comma><space>i<closeparen><lf><space><space><space><space><space><space><space><space><space><space><space><space>self.pyoutput<openparen>newFeature<closeparen><lf><lf><space><space><space><space>def<space>close<openparen>self<closeparen>:<lf><space><space><space><space><space><space><space><space><quote><quote><quote>This<space>method<space>is<space>called<space>at<space>the<space>end<space>of<space>the<space>class.<quote><quote><quote><lf><space><space><space><space><space><space><space><space>pass<lf> }    OUTPUT { PYOUTPUT FEATURE_TYPE PythonCreator_2_OUTPUT        @SupplyAttributes(?,fme_feature_type,PythonCreator_2)         }
+FACTORY_DEF * BranchingFactory   FACTORY_NAME "PythonCreator_2_OUTPUT Brancher -1 43"   INPUT FEATURE_TYPE PythonCreator_2_OUTPUT   TARGET_FACTORY "$(WB_CURRENT_CONTEXT)_CREATOR_BRANCH_TARGET"   MAXIMUM_COUNT None   OUTPUT PASSED FEATURE_TYPE *
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(WB_CURRENT_CONTEXT)_CREATOR_BRANCH_TARGET"   INPUT FEATURE_TYPE *  OUTPUT FEATURE_TYPE *
+# -------------------------------------------------------------------------
+FACTORY_DEF {*} ServerFactory    FACTORY_NAME { FMEFlowJobSubmitter }       INPUT  FEATURE_TYPE PythonCreator_2_OUTPUT    ACTION { SUBMIT_JOB }    CONNECTION { "mba<space>FME<space>Flow" }    REPOSITORY { "BaselineDatakwaliteit" }    WORKSPACE_NAME { "ActualiteitChecker.fmw" }    BLOCKING { FALSE }    WORKSPACE_PARAMETERS { "output_csv_folder string @EvaluateExpression(FDIV,STRING_ENCODED,$(output_csv_folder$encode),FMEFlowJobSubmitter) parquet_file string @EvaluateExpression(FDIV,STRING_ENCODED,<at>Value<openparen>parquet_file<closeparen>,FMEFlowJobSubmitter)" }    OUTPUT { REJECTED FEATURE_TYPE FMEFlowJobSubmitter_<REJECTED>        }
+DEFAULT_MACRO _WB_BYPASS_TERMINATION No
+FACTORY_DEF * TeeFactory FACTORY_NAME FMEFlowJobSubmitter_<Rejected> INPUT FEATURE_TYPE FMEFlowJobSubmitter_<REJECTED>  NO_LOGGING   OUTPUT FAILED FEATURE_TYPE * @Abort(ENCODED, FMEFlowJobSubmitter<space>output<space>a<space><lt>Rejected<gt><space>feature.<space><space>To<space>continue<space>translation<space>when<space>features<space>are<space>rejected<comma><space>change<space><apos>Workspace<space>Parameters<apos><space><gt><space>Translation<space><gt><space><apos>Rejected<space>Feature<space>Handling<apos><space>to<space><apos>Continue<space>Translation<apos>)
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "Sampler_2 (Disabled) Nuker"   INPUT FEATURE_TYPE PythonCreator_OUTPUT_0_bMFgs3D7NQo=
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "FeatureReader (Disabled) Nuker"   INPUT FEATURE_TYPE PythonCreator_OUTPUT_1_SC/8pGzemNA=
+FACTORY_DEF * TeeFactory   FACTORY_NAME "FeatureReader_<OTHER> Disabled Nuker -1 16"   INPUT FEATURE_TYPE FeatureReader_<OTHER>   NO_LOGGING 
+DEFAULT_MACRO _WB_BYPASS_TERMINATION No
+FACTORY_DEF * TeeFactory FACTORY_NAME FeatureReader_<Rejected> INPUT FEATURE_TYPE FeatureReader_<REJECTED>  NO_LOGGING   OUTPUT FAILED FEATURE_TYPE * @Abort(ENCODED, FeatureReader<space>output<space>a<space><lt>Rejected<gt><space>feature.<space><space>To<space>continue<space>translation<space>when<space>features<space>are<space>rejected<comma><space>change<space><apos>Workspace<space>Parameters<apos><space><gt><space>Translation<space><gt><space><apos>Rejected<space>Feature<space>Handling<apos><space>to<space><apos>Continue<space>Translation<apos>)
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "AttributeExposer (Disabled) Nuker"   INPUT FEATURE_TYPE FeatureReader_<OTHER>
+FACTORY_DEF * TeeFactory   FACTORY_NAME "AttributeExposer_OUTPUT Disabled Nuker -1 17"   INPUT FEATURE_TYPE AttributeExposer_OUTPUT   NO_LOGGING 
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "DateTimeConverter (Disabled) Nuker"   INPUT FEATURE_TYPE AttributeExposer_OUTPUT
+FACTORY_DEF * TeeFactory   FACTORY_NAME "DateTimeConverter_OUTPUT Disabled Nuker -1 9"   INPUT FEATURE_TYPE DateTimeConverter_OUTPUT   NO_LOGGING 
+DEFAULT_MACRO _WB_BYPASS_TERMINATION No
+FACTORY_DEF * TeeFactory FACTORY_NAME DateTimeConverter_<Rejected> INPUT FEATURE_TYPE DateTimeConverter_<REJECTED>  NO_LOGGING   OUTPUT FAILED FEATURE_TYPE * @Abort(ENCODED, DateTimeConverter<space>output<space>a<space><lt>Rejected<gt><space>feature.<space><space>To<space>continue<space>translation<space>when<space>features<space>are<space>rejected<comma><space>change<space><apos>Workspace<space>Parameters<apos><space><gt><space>Translation<space><gt><space><apos>Rejected<space>Feature<space>Handling<apos><space>to<space><apos>Continue<space>Translation<apos>)
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "PythonCaller (Disabled) Nuker"   INPUT FEATURE_TYPE DateTimeConverter_OUTPUT
+DEFAULT_MACRO _WB_BYPASS_TERMINATION No
+FACTORY_DEF * TeeFactory FACTORY_NAME PythonCaller_<Rejected> INPUT FEATURE_TYPE PythonCaller_<Rejected>  NO_LOGGING   OUTPUT FAILED FEATURE_TYPE * @Abort(ENCODED, PythonCaller<space>output<space>a<space><lt>Rejected<gt><space>feature.<space><space>To<space>continue<space>translation<space>when<space>features<space>are<space>rejected<comma><space>change<space><apos>Workspace<space>Parameters<apos><space><gt><space>Translation<space><gt><space><apos>Rejected<space>Feature<space>Handling<apos><space>to<space><apos>Continue<space>Translation<apos>)
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "AttributeCreator (Disabled) Nuker"   INPUT FEATURE_TYPE PythonCaller_OUTPUT
+FACTORY_DEF * TeeFactory   FACTORY_NAME "AttributeCreator_OUTPUT_0_DO3vREOR6/M= Disabled Nuker -1 21"   INPUT FEATURE_TYPE AttributeCreator_OUTPUT_0_DO3vREOR6/M=   NO_LOGGING 
+FACTORY_DEF * TeeFactory   FACTORY_NAME "AttributeCreator_OUTPUT_1_qtO51pc0PKY= Disabled Nuker -1 27"   INPUT FEATURE_TYPE AttributeCreator_OUTPUT_1_qtO51pc0PKY=   NO_LOGGING 
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "FeatureWriter (Disabled) Nuker"   INPUT FEATURE_TYPE AttributeCreator_OUTPUT_0_DO3vREOR6/M=
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "ListBuilder (Disabled) Nuker"   INPUT FEATURE_TYPE AttributeCreator_OUTPUT_1_qtO51pc0PKY=
+FACTORY_DEF * TeeFactory   FACTORY_NAME "ListBuilder_OUTPUT Disabled Nuker -1 25"   INPUT FEATURE_TYPE ListBuilder_OUTPUT   NO_LOGGING 
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "ListConcatenator (Disabled) Nuker"   INPUT FEATURE_TYPE ListBuilder_OUTPUT
+FACTORY_DEF * TeeFactory   FACTORY_NAME "ListConcatenator_OUTPUT Disabled Nuker -1 30"   INPUT FEATURE_TYPE ListConcatenator_OUTPUT   NO_LOGGING 
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "ListExploder (Disabled) Nuker"   INPUT FEATURE_TYPE ListConcatenator_OUTPUT
+DEFAULT_MACRO _WB_BYPASS_TERMINATION No
+FACTORY_DEF * TeeFactory FACTORY_NAME ListExploder_<Rejected> INPUT FEATURE_TYPE ListExploder_<REJECTED>  NO_LOGGING   OUTPUT FAILED FEATURE_TYPE * @Abort(ENCODED, ListExploder<space>output<space>a<space><lt>Rejected<gt><space>feature.<space><space>To<space>continue<space>translation<space>when<space>features<space>are<space>rejected<comma><space>change<space><apos>Workspace<space>Parameters<apos><space><gt><space>Translation<space><gt><space><apos>Rejected<space>Feature<space>Handling<apos><space>to<space><apos>Continue<space>Translation<apos>)
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * RoutingFactory FACTORY_NAME "Destination Feature Type Routing Correlator"   COMMAND_PARM_EVALUATION SINGLE_PASS   INPUT FEATURE_TYPE *   FEATURE_TYPE_ATTRIBUTE __wb_out_feat_type__   OUTPUT ROUTED FEATURE_TYPE *    OUTPUT NOT_ROUTED FEATURE_TYPE __nuke_me__ @Tcl2("FME_StatMessage 818059 [FME_GetAttribute fme_template_feature_type] 818060 818061 fme_warn")
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory   FACTORY_NAME "Final Output Nuker"   INPUT FEATURE_TYPE __nuke_me__
+

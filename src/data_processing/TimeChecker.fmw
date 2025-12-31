@@ -1,0 +1,628 @@
+#! <?xml version="1.0" encoding="UTF-8" ?>
+#! <WORKSPACE
+#    Command line to run this workspace:
+#        C:\apps\fme-2024\fme.exe C:\temp\EUR-ASSIGNMENT\src\data_processing\TimeChecker.fmw
+#          --output_csv_folder "K:\CentraalDatamanagement\PDC\01_WIP\01_Algemeen\X_000002_DatakwaliteitBaseline\70_Resultaten"
+#          --parquet_file ""
+#          --FME_LAUNCH_VIEWER_APP "YES"
+#    
+#!   A0_PREVIEW_IMAGE="data:image/png;base64,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"
+#!   ARCGIS_COMPATIBILITY="ARCGIS_AUTO"
+#!   ATTR_TYPE_ENCODING="SDF"
+#!   BEGIN_PYTHON=""
+#!   BEGIN_TCL=""
+#!   CATEGORY="&quot;Data Quality&quot;"
+#!   DESCRIPTION="&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Deze workspace is gemaakt als onderdeel van de opdracht van Rens en Maarten voor hun opleiding Data en AI Engineering. De workspace leest history tables in parquetvorm in en schrijft een csv weg. In deze csv zijn de waarden vervangen door het moment waarop deze het laatst zijn gewijzigd. Het script is zo gemaakt dat het met een FME Jobsubmitter aangeroepen kan worden.&lt;/p&gt;"
+#!   DESTINATION="NONE"
+#!   DESTINATION_ROUTING_FILE=""
+#!   DOC_EXTENTS="4022.77 4082.55"
+#!   DOC_TOP_LEFT="-41.6015 -847.54"
+#!   END_PYTHON=""
+#!   END_TCL=""
+#!   EXPLICIT_BOOKMARK_ORDER="false"
+#!   FME_BUILD_NUM="24831"
+#!   FME_BULK_MODE_THRESHOLD="2000"
+#!   FME_DOCUMENT_GUID="27f51409-0b1d-47b8-a8e3-231827d2b827"
+#!   FME_DOCUMENT_PRIORGUID="fdc837c0-337e-43e2-8745-4ebd2c4555b9"
+#!   FME_GEOMETRY_HANDLING="Enhanced"
+#!   FME_IMPLICIT_CSMAP_REPROJECTION_MODE="Auto"
+#!   FME_NAMES_ENCODING="UTF-8"
+#!   FME_REPROJECTION_ENGINE="FME"
+#!   FME_SERVER_SERVICES=""
+#!   FME_STROKE_MAX_DEVIATION="0"
+#!   HISTORY="23-12-2025,Maarten,Aangemaakt"
+#!   IGNORE_READER_FAILURE="No"
+#!   LAST_SAVE_BUILD="FME(R) 2024.2.4.0 (20250318 - Build 24831 - WIN64)"
+#!   LAST_SAVE_DATE="2025-12-30T13:41:08"
+#!   LOG_FILE=""
+#!   LOG_MAX_RECORDED_FEATURES="200"
+#!   MARKDOWN_DESCRIPTION=""
+#!   MARKDOWN_USAGE=""
+#!   MAX_LOG_FEATURES="200"
+#!   MULTI_WRITER_DATASET_ORDER="BY_ID"
+#!   PASSWORD=""
+#!   PYTHON_COMPATIBILITY="312"
+#!   REDIRECT_TERMINATORS="NONE"
+#!   SAVE_ON_PROMPT_AND_RUN="Yes"
+#!   SHOW_ANNOTATIONS="true"
+#!   SHOW_INFO_NODES="true"
+#!   SOURCE="NONE"
+#!   SOURCE_ROUTING_FILE=""
+#!   TERMINATE_REJECTED="YES"
+#!   TITLE="TimeChecker"
+#!   USAGE=""
+#!   USE_MARKDOWN="NO"
+#!   VIEW_POSITION="-583.339 131.946"
+#!   WARN_INVALID_XFORM_PARAM="Yes"
+#!   WORKSPACE_VERSION="1"
+#!   ZOOM_SCALE="90"
+#! >
+#! <DATASETS>
+#! </DATASETS>
+#! <DATA_TYPES>
+#! </DATA_TYPES>
+#! <GEOM_TYPES>
+#! </GEOM_TYPES>
+#! <FEATURE_TYPES>
+#! </FEATURE_TYPES>
+#! <FMESERVER>
+#! <SERVICES>
+#! <SERVICE
+#!   NAME="fmejobsubmitter"
+#! >
+#! <PROPERTIES>
+#! <PROPERTY
+#!   NAME="ADVANCED"
+#!   VALUE=""
+#! />
+#! <PROPERTY
+#!   NAME="FAILURE_TOPICS"
+#!   VALUE=""
+#! />
+#! <PROPERTY
+#!   NAME="HTTP_DATASET"
+#!   VALUE=""
+#! />
+#! <PROPERTY
+#!   NAME="NOTIFICATION_WRITER"
+#!   VALUE=""
+#! />
+#! <PROPERTY
+#!   NAME="SUCCESS_TOPICS"
+#!   VALUE=""
+#! />
+#! </PROPERTIES>
+#! </SERVICE>
+#! </SERVICES>
+#! <REPOSITORY
+#!   NAME="BaselineDatakwaliteit"
+#! />
+#! <ITEM
+#!   NAME="ActualiteitChecker.fmw"
+#! />
+#! <MODIFICATIONS>
+#! <MODIFICATION
+#!   UID=":GlobalParameterMgr:FME_SERVER_DEST_DIR"
+#!   VALUE=""
+#! />
+#! <MODIFICATION
+#!   UID=":GlobalParameterMgr:FME_SHAREDRESOURCE_BACKUP"
+#!   VALUE=""
+#! />
+#! <MODIFICATION
+#!   UID=":GlobalParameterMgr:FME_SHAREDRESOURCE_DASHBOARD"
+#!   VALUE=""
+#! />
+#! <MODIFICATION
+#!   UID=":GlobalParameterMgr:FME_SHAREDRESOURCE_DATA"
+#!   VALUE=""
+#! />
+#! <MODIFICATION
+#!   UID=":GlobalParameterMgr:FME_SHAREDRESOURCE_ENGINE"
+#!   VALUE=""
+#! />
+#! <MODIFICATION
+#!   UID=":GlobalParameterMgr:FME_SHAREDRESOURCE_LOG"
+#!   VALUE=""
+#! />
+#! <MODIFICATION
+#!   UID=":GlobalParameterMgr:FME_SHAREDRESOURCE_SYSTEM"
+#!   VALUE=""
+#! />
+#! <MODIFICATION
+#!   UID=":GlobalParameterMgr:FME_SHAREDRESOURCE_TEMP"
+#!   VALUE=""
+#! />
+#! <MODIFICATION
+#!   UID=":GlobalParameterMgr:FME_TOPIC_MESSAGE"
+#!   VALUE=""
+#! />
+#! <MODIFICATION
+#!   UID=":GlobalParameterMgr:output_csv_folder"
+#!   VALUE="K:\CentraalDatamanagement\PDC\01_WIP\01_Algemeen\X_000002_DatakwaliteitBaseline\70_Resultaten"
+#! />
+#! <MODIFICATION
+#!   UID=":GlobalParameterMgr:parquet_file"
+#!   VALUE=""
+#! />
+#! <MODIFICATION
+#!   UID=":WBDoc:DESTINATION_ROUTING_FILE"
+#!   VALUE=""
+#! />
+#! <MODIFICATION
+#!   UID=":WBDoc:LOG_FILE"
+#!   VALUE=""
+#! />
+#! <MODIFICATION
+#!   UID=":WBDoc:SOURCE_ROUTING_FILE"
+#!   VALUE=""
+#! />
+#! <MODIFICATION
+#!   UID=":WBParameterNode_3:DATASET"
+#!   VALUE="$(parquet_file)"
+#! />
+#! </MODIFICATIONS>
+#! <READER_DATASETS>
+#! <DATASET
+#!   NAME="FeatureReader"
+#!   OVERRIDE="--FeatureReaderDataset_FeatureReader"
+#!   DATASET="FeatureReader/"
+#! />
+#! </READER_DATASETS>
+#! </FMESERVER>
+#! <GLOBAL_PARAMETERS>
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI DIRNAME_SRC output_csv_folder output csv folder"
+#!   DEFAULT_VALUE="K:\CentraalDatamanagement\PDC\01_WIP\01_Algemeen\X_000002_DatakwaliteitBaseline\70_Resultaten"
+#!   IS_STAND_ALONE="true"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI FILENAME_MUSTEXIST_OR_ATTR parquet_file &quot;&quot; Select a parquet file"
+#!   DEFAULT_VALUE=""
+#!   IS_STAND_ALONE="true"
+#! />
+#! </GLOBAL_PARAMETERS>
+#! <USER_PARAMETERS
+#!   FORM="eyJwYXJhbWV0ZXJzIjpbeyJuYW1lIjoib3V0cHV0X2Nzdl9mb2xkZXIiLCJwcm9tcHQiOiJvdXRwdXQgY3N2IGZvbGRlciIsInNob3dQcm9tcHQiOnRydWUsInZhbHVlVHlwZSI6InN0cmluZyIsInJlcXVpcmVkIjp0cnVlLCJkZWZhdWx0VmFsdWUiOiJLOlxcQ2VudHJhYWxEYXRhbWFuYWdlbWVudFxcUERDXFwwMV9XSVBcXDAxX0FsZ2VtZWVuXFxYXzAwMDAwMl9EYXRha3dhbGl0ZWl0QmFzZWxpbmVcXDcwX1Jlc3VsdGF0ZW4iLCJ0eXBlIjoiZmlsZSIsInNlbGVjdE11bHRpcGxlIjpmYWxzZSwiaXRlbXNUb1NlbGVjdCI6ImZvbGRlcnMiLCJhY2Nlc3NNb2RlIjoicmVhZCIsInZhbGlkYXRlRXhpc3RlbmNlIjp0cnVlLCJhbGxvd1VSTCI6ZmFsc2V9LHsibmFtZSI6InBhcnF1ZXRfZmlsZSIsInByb21wdCI6IlNlbGVjdCBhIHBhcnF1ZXQgZmlsZSIsInNob3dQcm9tcHQiOnRydWUsInZhbHVlVHlwZSI6InN0cmluZyIsInJlcXVpcmVkIjp0cnVlLCJkZWZhdWx0VmFsdWUiOiIiLCJzdXBwb3J0ZWRWYWx1ZVR5cGVzIjpbImV4cHJlc3Npb24iLCJnbG9iYWxQYXJhbWV0ZXIiXSwidHlwZSI6ImZpbGUiLCJzZWxlY3RNdWx0aXBsZSI6ZmFsc2UsIml0ZW1zVG9TZWxlY3QiOiJmaWxlcyIsImFjY2Vzc01vZGUiOiJyZWFkIiwidmFsaWRhdGVFeGlzdGVuY2UiOnRydWV9XX0="
+#! >
+#! <PARAMETER_INFO>
+#!     <INFO NAME="output_csv_folder" 
+#!   DEFAULT_VALUE="K:\CentraalDatamanagement\PDC\01_WIP\01_Algemeen\X_000002_DatakwaliteitBaseline\70_Resultaten"
+#!   SCOPE="STAND_ALONE"
+#!   GENERATED_GUI_LINE="true"
+#!   GUI_LINE="GUI DIRNAME_SRC output_csv_folder output csv folder"
+#! />
+#!     <INFO NAME="parquet_file" 
+#!   DEFAULT_VALUE=""
+#!   SCOPE="STAND_ALONE"
+#!   GENERATED_GUI_LINE="true"
+#!   GUI_LINE="GUI FILENAME_MUSTEXIST_OR_ATTR parquet_file &quot;&quot; Select a parquet file"
+#! />
+#! </PARAMETER_INFO>
+#! </USER_PARAMETERS>
+#! <COMMENTS>
+#! <COMMENT
+#!   IDENTIFIER="12"
+#!   COMMENT_VALUE="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&#10;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&#10;p, li { white-space: pre-wrap; }&#10;hr { height: 1px; border-width: 0; }&#10;li.unchecked::marker { content: &quot;\2610&quot;; }&#10;li.checked::marker { content: &quot;\2612&quot;; }&#10;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Segoe UI&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;PythonCaller:&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;import fme&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;from fme import BaseTransformer&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;import fmeobjects&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;from collections import defaultdict&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;from datetime import datetime&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;import csv&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;import os&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;class FeatureProcessor(BaseTransformer):&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    def __init__(self):&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        self.feature_groups = defaultdict(list)&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        self.output_folder = fme.macroValues[&amp;quot;output_csv_folder&amp;quot;]  # Retrieve the user parameter for the output folder&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    def input(self, feature: fmeobjects.FMEFeature):&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        object_id = feature.getAttribute(&amp;quot;OBJECTID&amp;quot;)&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        self.feature_groups[object_id].append(feature)&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;    def close(self):&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;        for object_id, features in self.feature_groups.items():&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            # Sort features by GDB_FROM_DATE in ascending order&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            features.sort(key=lambda f: datetime.strptime(f.getAttribute(&amp;quot;GDB_FROM_DATE&amp;quot;), &amp;quot;%Y-%m-%d %H:%M:%S&amp;quot;))&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            # Get the feature with the latest GDB_FROM_DATE&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            latest_feature = features[-1]&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            # Create a dictionary to store the earliest GDB_FROM_DATE for each attribute&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            last_changed_dates = {}&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            for feature in features:&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                for attr in feature.getAllAttributeNames():&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                    if attr not in [&amp;quot;OBJECTID&amp;quot;, &amp;quot;GDB_FROM_DATE&amp;quot;]:&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                        if feature.getAttribute(attr) == latest_feature.getAttribute(attr):&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                            if attr not in last_changed_dates:&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                                last_changed_dates[attr] = feature.getAttribute(&amp;quot;GDB_FROM_DATE&amp;quot;)&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            # Add the new attributes to the latest feature&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            for attr, date in last_changed_dates.items():&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                latest_feature.setAttribute(f&amp;quot;{attr}_last_changed&amp;quot;, date)&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            # Determine the basename for the CSV file&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            basename = latest_feature.getAttribute(&amp;quot;fme_basename&amp;quot;)&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            if not basename:&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                basename = &amp;quot;default&amp;quot;&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            # Prepare the CSV file path in the specified output folder&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            csv_file_path = os.path.join(self.output_folder, f&amp;quot;{basename}.csv&amp;quot;)&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            # Ensure the output folder exists&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            os.makedirs(self.output_folder, exist_ok=True)&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            # Write the attributes including OBJECTID and those with the suffix &amp;quot;_last_changed&amp;quot; to the CSV file&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            with open(csv_file_path, mode=&amp;quot;a&amp;quot;, newline=&amp;quot;&amp;quot;, encoding=&amp;quot;utf-8&amp;quot;) as csv_file:&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                writer = csv.writer(csv_file)&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                # Include OBJECTID and filter attributes with the suffix &amp;quot;_last_changed&amp;quot;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                last_changed_attrs = [&amp;quot;OBJECTID&amp;quot;] + [attr for attr in latest_feature.getAllAttributeNames() if attr.endswith(&amp;quot;_last_changed&amp;quot;)]&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                # Write header if the file is empty&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                if os.stat(csv_file_path).st_size == 0:&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                    writer.writerow(last_changed_attrs)&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                # Write the feature attributes&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                row = [latest_feature.getAttribute(attr) for attr in last_changed_attrs]&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;                writer.writerow(row)&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            # Output the latest feature with the new attributes&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;            self.pyoutput(latest_feature, output_tag=&amp;quot;PYOUTPUT&amp;quot;)&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"
+#!   POSITION="1160.9755715074239 3235.0051083844169"
+#!   TOP_LEFT="1160.9755715074239 3235.0051083844169"
+#!   BOTTOM_RIGHT="3981.1692890695995 -270.02964196308631"
+#!   BOUNDING_RECT="1160.9755715074239 3235.0051083844169 2820.1937175621756 3505.0347503475032"
+#!   ORDER="500000000000009"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="false"
+#!   CUSTOM_USER_COLOR="false"
+#!   UUID="{aa17f997-aca5-4843-b04e-c652bdc2ac08}"
+#!   COLOUR="1,0.95686274509803926,0.80000000000000004,0.90196078431372551"
+#!   SIZE_POLICY="10"
+#!   ANCHORED_NODE="5"
+#! />
+#! <COMMENT
+#!   IDENTIFIER="13"
+#!   COMMENT_VALUE="&lt;b&gt;DateTimeConverter&amp;nbsp;[DateTimeConverter]&lt;/b&gt;&lt;br&gt;General:&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Datetime&amp;nbsp;Attributes:&amp;nbsp;GDB_FROM_DATE&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Input&amp;nbsp;Format:&amp;nbsp;FME&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Output&amp;nbsp;Format:&amp;nbsp;%Y-%m-%d&amp;nbsp;%H:%M:%S&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Repair&amp;nbsp;Overflow:&amp;nbsp;Yes&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Passthrough&amp;nbsp;Nulls,&amp;nbsp;Empties,&amp;nbsp;or&amp;nbsp;Missing:&amp;nbsp;No&lt;br&gt;Preview:&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Preview&amp;nbsp;Data:&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;Input&amp;nbsp;Data:&amp;nbsp;&amp;lt;not&amp;nbsp;set&amp;gt;"
+#!   POSITION="1967.2067190314378 -819.76209206536453"
+#!   TOP_LEFT="1967.2067190314378 -819.76209206536453"
+#!   BOTTOM_RIGHT="2789.0894378586263 -818.76209206536453"
+#!   BOUNDING_RECT="1967.2067190314378 -819.76209206536453 821.88271882718823 -1"
+#!   ORDER="500000000000010"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="true"
+#!   CUSTOM_USER_COLOR="false"
+#!   UUID="{c162bb49-f0dd-43c1-9c22-f01b44ec6b85}"
+#!   ANCHORED_NODE="6"
+#! />
+#! <COMMENT
+#!   IDENTIFIER="14"
+#!   COMMENT_VALUE="&lt;b&gt;AttributeExposer&amp;nbsp;[AttributeExposer]&lt;/b&gt;&lt;br&gt;Attributes&amp;nbsp;To&amp;nbsp;Expose:&lt;table border=0 cellspacing=0&gt;&lt;tr&gt;&lt;td valign=middle&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/td&gt;&lt;td&gt;&lt;table border=1 cellspacing=0 cellpadding=2&gt;&lt;tr&gt;&lt;td&gt;Attribute&lt;/td&gt;&lt;td&gt;Type&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;GDB_FROM_DATE&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;OBJECTID&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"
+#!   POSITION="1160.9755715074239 -847.54014762369798"
+#!   TOP_LEFT="1160.9755715074239 -847.54014762369798"
+#!   BOTTOM_RIGHT="1870.3571653233621 -846.54014762369798"
+#!   BOUNDING_RECT="1160.9755715074239 -847.54014762369798 709.38159381593812 -1"
+#!   ORDER="500000000000011"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="true"
+#!   CUSTOM_USER_COLOR="false"
+#!   UUID="{c69a7d4e-12f2-439f-8813-5eef5826561a}"
+#!   ANCHORED_NODE="7"
+#! />
+#! </COMMENTS>
+#! <CONSTANTS>
+#! </CONSTANTS>
+#! <BOOKMARKS>
+#! <BOOKMARK
+#!   IDENTIFIER="11"
+#!   NAME="Inlezen van parquet-dataset"
+#!   DESCRIPTION=""
+#!   TOP_LEFT="-41.601478514785185 -318.85825524921904"
+#!   ORDER="500000000000008"
+#!   PALETTE_COLOR="Workflow1"
+#!   BOTTOM_RIGHT="1210.9755715074239 -803.85825524921904"
+#!   BOUNDING_RECT="-41.601478514785185 -318.85825524921904 1252.5770500222091 485"
+#!   STICKY="true"
+#!   COLOUR="0.32549019607843138,0.62352941176470589,0.92549019607843142,1"
+#!   CONTENTS="4 3 2 "
+#! >
+#! </BOOKMARK>
+#! </BOOKMARKS>
+#! <TRANSFORMERS>
+#! <TRANSFORMER
+#!   IDENTIFIER="2"
+#!   TYPE="Creator"
+#!   VERSION="7"
+#!   POSITION="8.3985214852148147 -408.85825524921904"
+#!   BOUNDING_RECT="8.3985214852148147 -408.85825524921904 436 65"
+#!   ORDER="500000000000001"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="CREATED"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="ATEND" PARM_VALUE="no"/>
+#!     <XFORM_PARM PARM_NAME="COORDSYS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="CRE_ATTR" PARM_VALUE="_creation_instance"/>
+#!     <XFORM_PARM PARM_NAME="GEOJSON" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="GEOM" PARM_VALUE="&lt;lt&gt;?xml&lt;space&gt;version=&lt;quote&gt;1.0&lt;quote&gt;&lt;space&gt;encoding=&lt;quote&gt;US_ASCII&lt;quote&gt;&lt;space&gt;standalone=&lt;quote&gt;no&lt;quote&gt;&lt;space&gt;?&lt;gt&gt;&lt;lt&gt;geometry&lt;space&gt;dimension=&lt;quote&gt;2&lt;quote&gt;&lt;gt&gt;&lt;lt&gt;null&lt;solidus&gt;&lt;gt&gt;&lt;lt&gt;&lt;solidus&gt;geometry&lt;gt&gt;"/>
+#!     <XFORM_PARM PARM_NAME="GEOMTYPE" PARM_VALUE="Geometry Object"/>
+#!     <XFORM_PARM PARM_NAME="NUM" PARM_VALUE="1"/>
+#!     <XFORM_PARM PARM_NAME="OAN_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="Creator"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="3"
+#!   TYPE="FeatureReader"
+#!   VERSION="15"
+#!   POSITION="724.97557150742387 -408.85825524921904"
+#!   BOUNDING_RECT="724.97557150742387 -408.85825524921904 436 65"
+#!   ORDER="500000000000002"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="&lt;SCHEMA&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_feature_type_name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="attribute{}.name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="attribute{}.fme_data_type" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="attribute{}.native_data_type" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_format_short_name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_format_long_name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_schema_handling" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="&lt;OTHER&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <OUTPUT_FEAT NAME="INITIATOR"/>
+#!     <FEAT_COLLAPSED COLLAPSED="2"/>
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <XFORM_ATTR ATTR_NAME="_matched_records" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <OUTPUT_FEAT NAME="&lt;REJECTED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="3"/>
+#!     <XFORM_ATTR ATTR_NAME="_creation_instance" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <XFORM_ATTR ATTR_NAME="_reader_error" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTE_TYPES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTRS_TO_EXPOSE" PARM_VALUE="fme_basename"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_ACCUM_MODE" PARM_VALUE="Only Use Result"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_CONFLICT_RES" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_IGNORE_NULLS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_PREFIX" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="AVAILABLE_FEATURE_TYPES" PARM_VALUE="_FEATUREREADER_OPTIONAL_FTTR_"/>
+#!     <XFORM_PARM PARM_NAME="CACHE_TIMEOUT_HRS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="CLIP_TO_ENVELOPE" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="COMBINE_GEOM" PARM_VALUE="Use Result"/>
+#!     <XFORM_PARM PARM_NAME="CONSTRAINTS_GROUP" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
+#!     <XFORM_PARM PARM_NAME="COORDSYS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="DATASET" PARM_VALUE="$(parquet_file)"/>
+#!     <XFORM_PARM PARM_NAME="DYNGROUP_0" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ENABLE_CACHE" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="FEATURETYPES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="FORCE_REFRESH_OUTPUTS" PARM_VALUE="on_parm_change"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT" PARM_VALUE="GEOPARQUET"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT_ATTRIBUTE_TYPES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="FORMAT_DIRECTIVES" PARM_VALUE="METAFILE,GEOPARQUET"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT_PARAMS" PARM_VALUE="GEOPARQUET_GEOPARQUET_EXPOSE_FORMAT_ATTRS,&quot;OPTIONAL LITERAL EXPOSED_ATTRS GEOPARQUET%Source&quot;,GEOPARQUET&lt;space&gt;Additional&lt;space&gt;Attributes&lt;space&gt;to&lt;space&gt;Expose:,GEOPARQUET_EXPOSE_ATTRS_GROUP,&quot;OPTIONAL DISCLOSUREGROUP GEOPARQUET_EXPOSE_FORMAT_ATTRS&quot;,GEOPARQUET&lt;space&gt;Schema&lt;space&gt;Attributes,GEOPARQUET_NETWORK_AUTHENTICATION,&quot;OPTIONAL AUTHENTICATOR CONTAINER%ACTIVEDISCLOSUREGROUP%CONTAINER_TITLE%Use Network Authentication%PROMPT_TYPE%NETWORK&quot;,GEOPARQUET&lt;space&gt;Use&lt;space&gt;Network&lt;space&gt;Authentication,GEOPARQUET_SUPPORT_LISTS,&quot;OPTIONAL NO_EDIT TEXT&quot;,GEOPARQUET&lt;space&gt;"/>
+#!     <XFORM_PARM PARM_NAME="FTTR_SEPARATOR" PARM_VALUE="SPACE"/>
+#!     <XFORM_PARM PARM_NAME="GENERIC_GROUP" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
+#!     <XFORM_PARM PARM_NAME="GEOMETRY_TYPES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="GEOPARQUET_EXPOSE_ATTRS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="GEOPARQUET_GEOPARQUET_EXPOSE_FORMAT_ATTRS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="GEOPARQUET_NETWORK_AUTHENTICATION" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="GEOPARQUET_SUPPORT_LISTS" PARM_VALUE="yes"/>
+#!     <XFORM_PARM PARM_NAME="INITIATOR_FIRST_OUTPUT" PARM_VALUE="default"/>
+#!     <XFORM_PARM PARM_NAME="INTERACT" PARM_VALUE="NONE"/>
+#!     <XFORM_PARM PARM_NAME="MAX_FEATURES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="MERGE_HANDLING_GROUP" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
+#!     <XFORM_PARM PARM_NAME="ORDER_RESULTS" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUTPORTS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_ADD_SCHEMA_ATTRIBUTES" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_FEATURES_DISPLAY" PARM_VALUE="Schema and Data Features"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_FEATURES_GROUP" PARM_VALUE="FME_DISCLOSURE_CLOSED"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_PORTS_MODE" PARM_VALUE="PORTS_FROM_FTTR"/>
+#!     <XFORM_PARM PARM_NAME="PORTS_FROM_FTTR" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="READER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="READ_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="SELECTED_PORTS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="SINGLE_PORT" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="SUPPORTED_SPATIAL_INTERACTIONS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="WHERE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="FeatureReader"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="5"
+#!   TYPE="PythonCaller"
+#!   VERSION="6"
+#!   POSITION="2641.5988598972904 -439.4799114657809"
+#!   BOUNDING_RECT="2641.5988598972904 -439.4799114657809 436 65"
+#!   ORDER="500000000000003"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="&lt;Rejected&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_message" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="ADVANCED_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="GROUP_BY" PARM_VALUE="OBJECTID"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_BY_MODE" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_PROCESSING_GROUP" PARM_VALUE="YES"/>
+#!     <XFORM_PARM PARM_NAME="HIDE_ATTRIBUTES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="LIST_ATTRS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NEW_ATTRIBUTES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PYTHONSOURCE" PARM_VALUE="import&lt;space&gt;fme&lt;lf&gt;from&lt;space&gt;fme&lt;space&gt;import&lt;space&gt;BaseTransformer&lt;lf&gt;import&lt;space&gt;fmeobjects&lt;lf&gt;from&lt;space&gt;collections&lt;space&gt;import&lt;space&gt;defaultdict&lt;lf&gt;from&lt;space&gt;datetime&lt;space&gt;import&lt;space&gt;datetime&lt;lf&gt;import&lt;space&gt;csv&lt;lf&gt;import&lt;space&gt;os&lt;lf&gt;&lt;lf&gt;class&lt;space&gt;FeatureProcessor&lt;openparen&gt;BaseTransformer&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;__init__&lt;openparen&gt;self&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.feature_groups&lt;space&gt;=&lt;space&gt;defaultdict&lt;openparen&gt;list&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.output_folder&lt;space&gt;=&lt;space&gt;fme.macroValues&lt;openbracket&gt;&lt;quote&gt;output_csv_folder&lt;quote&gt;&lt;closebracket&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Retrieve&lt;space&gt;the&lt;space&gt;user&lt;space&gt;parameter&lt;space&gt;for&lt;space&gt;the&lt;space&gt;output&lt;space&gt;folder&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;input&lt;openparen&gt;self&lt;comma&gt;&lt;space&gt;feature:&lt;space&gt;fmeobjects.FMEFeature&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;object_id&lt;space&gt;=&lt;space&gt;feature.getAttribute&lt;openparen&gt;&lt;quote&gt;OBJECTID&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.feature_groups&lt;openbracket&gt;object_id&lt;closebracket&gt;.append&lt;openparen&gt;feature&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;def&lt;space&gt;close&lt;openparen&gt;self&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;for&lt;space&gt;object_id&lt;comma&gt;&lt;space&gt;features&lt;space&gt;in&lt;space&gt;self.feature_groups.items&lt;openparen&gt;&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Sort&lt;space&gt;features&lt;space&gt;by&lt;space&gt;GDB_FROM_DATE&lt;space&gt;in&lt;space&gt;ascending&lt;space&gt;order&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;features.sort&lt;openparen&gt;key=lambda&lt;space&gt;f:&lt;space&gt;datetime.strptime&lt;openparen&gt;f.getAttribute&lt;openparen&gt;&lt;quote&gt;GDB_FROM_DATE&lt;quote&gt;&lt;closeparen&gt;&lt;comma&gt;&lt;space&gt;&lt;quote&gt;%Y-%m-%d&lt;space&gt;%H:%M:%S&lt;quote&gt;&lt;closeparen&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Get&lt;space&gt;the&lt;space&gt;feature&lt;space&gt;with&lt;space&gt;the&lt;space&gt;latest&lt;space&gt;GDB_FROM_DATE&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;latest_feature&lt;space&gt;=&lt;space&gt;features&lt;openbracket&gt;-1&lt;closebracket&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Create&lt;space&gt;a&lt;space&gt;dictionary&lt;space&gt;to&lt;space&gt;store&lt;space&gt;the&lt;space&gt;earliest&lt;space&gt;GDB_FROM_DATE&lt;space&gt;for&lt;space&gt;each&lt;space&gt;attribute&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;last_changed_dates&lt;space&gt;=&lt;space&gt;&lt;opencurly&gt;&lt;closecurly&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;for&lt;space&gt;feature&lt;space&gt;in&lt;space&gt;features:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;for&lt;space&gt;attr&lt;space&gt;in&lt;space&gt;feature.getAllAttributeNames&lt;openparen&gt;&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;attr&lt;space&gt;not&lt;space&gt;in&lt;space&gt;&lt;openbracket&gt;&lt;quote&gt;OBJECTID&lt;quote&gt;&lt;comma&gt;&lt;space&gt;&lt;quote&gt;GDB_FROM_DATE&lt;quote&gt;&lt;closebracket&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;feature.getAttribute&lt;openparen&gt;attr&lt;closeparen&gt;&lt;space&gt;==&lt;space&gt;latest_feature.getAttribute&lt;openparen&gt;attr&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;attr&lt;space&gt;not&lt;space&gt;in&lt;space&gt;last_changed_dates:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;last_changed_dates&lt;openbracket&gt;attr&lt;closebracket&gt;&lt;space&gt;=&lt;space&gt;feature.getAttribute&lt;openparen&gt;&lt;quote&gt;GDB_FROM_DATE&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Add&lt;space&gt;the&lt;space&gt;new&lt;space&gt;attributes&lt;space&gt;to&lt;space&gt;the&lt;space&gt;latest&lt;space&gt;feature&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;for&lt;space&gt;attr&lt;comma&gt;&lt;space&gt;date&lt;space&gt;in&lt;space&gt;last_changed_dates.items&lt;openparen&gt;&lt;closeparen&gt;:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;latest_feature.setAttribute&lt;openparen&gt;f&lt;quote&gt;&lt;opencurly&gt;attr&lt;closecurly&gt;_last_changed&lt;quote&gt;&lt;comma&gt;&lt;space&gt;date&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Determine&lt;space&gt;the&lt;space&gt;basename&lt;space&gt;for&lt;space&gt;the&lt;space&gt;CSV&lt;space&gt;file&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;basename&lt;space&gt;=&lt;space&gt;latest_feature.getAttribute&lt;openparen&gt;&lt;quote&gt;fme_basename&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;not&lt;space&gt;basename:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;basename&lt;space&gt;=&lt;space&gt;&lt;quote&gt;default&lt;quote&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Prepare&lt;space&gt;the&lt;space&gt;CSV&lt;space&gt;file&lt;space&gt;path&lt;space&gt;in&lt;space&gt;the&lt;space&gt;specified&lt;space&gt;output&lt;space&gt;folder&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;csv_file_path&lt;space&gt;=&lt;space&gt;os.path.join&lt;openparen&gt;self.output_folder&lt;comma&gt;&lt;space&gt;f&lt;quote&gt;&lt;opencurly&gt;basename&lt;closecurly&gt;.csv&lt;quote&gt;&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Ensure&lt;space&gt;the&lt;space&gt;output&lt;space&gt;folder&lt;space&gt;exists&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;os.makedirs&lt;openparen&gt;self.output_folder&lt;comma&gt;&lt;space&gt;exist_ok=True&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Write&lt;space&gt;the&lt;space&gt;attributes&lt;space&gt;including&lt;space&gt;OBJECTID&lt;space&gt;and&lt;space&gt;those&lt;space&gt;with&lt;space&gt;the&lt;space&gt;suffix&lt;space&gt;&lt;quote&gt;_last_changed&lt;quote&gt;&lt;space&gt;to&lt;space&gt;the&lt;space&gt;CSV&lt;space&gt;file&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;with&lt;space&gt;open&lt;openparen&gt;csv_file_path&lt;comma&gt;&lt;space&gt;mode=&lt;quote&gt;a&lt;quote&gt;&lt;comma&gt;&lt;space&gt;newline=&lt;quote&gt;&lt;quote&gt;&lt;comma&gt;&lt;space&gt;encoding=&lt;quote&gt;utf-8&lt;quote&gt;&lt;closeparen&gt;&lt;space&gt;as&lt;space&gt;csv_file:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;writer&lt;space&gt;=&lt;space&gt;csv.writer&lt;openparen&gt;csv_file&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Include&lt;space&gt;OBJECTID&lt;space&gt;and&lt;space&gt;filter&lt;space&gt;attributes&lt;space&gt;with&lt;space&gt;the&lt;space&gt;suffix&lt;space&gt;&lt;quote&gt;_last_changed&lt;quote&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;last_changed_attrs&lt;space&gt;=&lt;space&gt;&lt;openbracket&gt;&lt;quote&gt;OBJECTID&lt;quote&gt;&lt;closebracket&gt;&lt;space&gt;+&lt;space&gt;&lt;openbracket&gt;attr&lt;space&gt;for&lt;space&gt;attr&lt;space&gt;in&lt;space&gt;latest_feature.getAllAttributeNames&lt;openparen&gt;&lt;closeparen&gt;&lt;space&gt;if&lt;space&gt;attr.endswith&lt;openparen&gt;&lt;quote&gt;_last_changed&lt;quote&gt;&lt;closeparen&gt;&lt;closebracket&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Write&lt;space&gt;header&lt;space&gt;if&lt;space&gt;the&lt;space&gt;file&lt;space&gt;is&lt;space&gt;empty&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;if&lt;space&gt;os.stat&lt;openparen&gt;csv_file_path&lt;closeparen&gt;.st_size&lt;space&gt;==&lt;space&gt;0:&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;writer.writerow&lt;openparen&gt;last_changed_attrs&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Write&lt;space&gt;the&lt;space&gt;feature&lt;space&gt;attributes&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;row&lt;space&gt;=&lt;space&gt;&lt;openbracket&gt;latest_feature.getAttribute&lt;openparen&gt;attr&lt;closeparen&gt;&lt;space&gt;for&lt;space&gt;attr&lt;space&gt;in&lt;space&gt;last_changed_attrs&lt;closebracket&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;writer.writerow&lt;openparen&gt;row&lt;closeparen&gt;&lt;lf&gt;&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;#&lt;space&gt;Output&lt;space&gt;the&lt;space&gt;latest&lt;space&gt;feature&lt;space&gt;with&lt;space&gt;the&lt;space&gt;new&lt;space&gt;attributes&lt;lf&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;&lt;space&gt;self.pyoutput&lt;openparen&gt;latest_feature&lt;comma&gt;&lt;space&gt;output_tag=&lt;quote&gt;PYOUTPUT&lt;quote&gt;&lt;closeparen&gt;"/>
+#!     <XFORM_PARM PARM_NAME="PYTHONSYMBOL" PARM_VALUE="FeatureProcessor"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="PythonCaller"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="6"
+#!   TYPE="DateTimeConverter"
+#!   VERSION="5"
+#!   POSITION="2005.4015454241458 -439.4799114657809"
+#!   BOUNDING_RECT="2005.4015454241458 -439.4799114657809 436 65"
+#!   ORDER="500000000000004"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="&lt;REJECTED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_message" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="DATETIME_ATTR" PARM_VALUE="GDB_FROM_DATE"/>
+#!     <XFORM_PARM PARM_NAME="IN_FORMAT" PARM_VALUE="FME"/>
+#!     <XFORM_PARM PARM_NAME="OUT_FORMAT" PARM_VALUE="%Y-%m-%d&lt;space&gt;%H:%M:%S"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PASSTHROUGH" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="REFERENCE" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="REFERENCE_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="REPAIR_INPUT" PARM_VALUE="YES"/>
+#!     <XFORM_PARM PARM_NAME="TEST_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TEST_INPUT" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TEST_INPUT_GROUP" PARM_VALUE="FME_DISCLOSURE_CLOSED"/>
+#!     <XFORM_PARM PARM_NAME="TEST_RESULT" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="DateTimeConverter"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="7"
+#!   TYPE="AttributeExposer"
+#!   VERSION="2"
+#!   POSITION="1380.4534359430497 -439.4799114657809"
+#!   BOUNDING_RECT="1380.4534359430497 -439.4799114657809 436 65"
+#!   ORDER="500000000000007"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="24831"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="fme_basename" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="GDB_FROM_DATE" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="OBJECTID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="ATTR_LIST_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTR_TABLE" PARM_VALUE="GDB_FROM_DATE,,OBJECTID,"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="AttributeExposer"/>
+#! </TRANSFORMER>
+#! </TRANSFORMERS>
+#! <FEAT_LINKS>
+#! <FEAT_LINK
+#!   IDENTIFIER="4"
+#!   SOURCE_NODE="2"
+#!   TARGET_NODE="3"
+#!   SOURCE_PORT_DESC="fo 0 CREATED"
+#!   TARGET_PORT_DESC="fi 0 INITIATOR"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="8"
+#!   SOURCE_NODE="6"
+#!   TARGET_NODE="5"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="9"
+#!   SOURCE_NODE="7"
+#!   TARGET_NODE="6"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="10"
+#!   SOURCE_NODE="3"
+#!   TARGET_NODE="7"
+#!   SOURCE_PORT_DESC="fo 1 &lt;lt&gt;OTHER&lt;gt&gt;"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   COLOUR="0.050980392156862744,0.050980392156862744,0.047058823529411764,1"
+#!   PEN_WIDTH="4"
+#!   PEN_STYLE="1"
+#!   LINK_STYLE_NAME="&lt;Default&gt;"
+#!   EXTRA_POINTS=""
+#! />
+#! </FEAT_LINKS>
+#! <BREAKPOINTS>
+#! </BREAKPOINTS>
+#! <ATTR_LINKS>
+#! </ATTR_LINKS>
+#! <SUBDOCUMENTS>
+#! </SUBDOCUMENTS>
+#! <LOOKUP_TABLES>
+#! </LOOKUP_TABLES>
+#! </WORKSPACE>
+
+FME_PYTHON_VERSION 312
+ARCGIS_COMPATIBILITY ARCGIS_AUTO
+# ============================================================================
+DEFAULT_MACRO output_csv_folder K:\CentraalDatamanagement\PDC\01_WIP\01_Algemeen\X_000002_DatakwaliteitBaseline\70_Resultaten
+
+DEFAULT_MACRO parquet_file 
+
+# ============================================================================
+INCLUDE [ if {{$(output_csv_folder$encode)} == {}} { puts_real {Parameter 'output_csv_folder' must be given a value.}; exit 1; }; ]
+INCLUDE [ if {{$(parquet_file$encode)} == {}} { puts_real {Parameter 'parquet_file' must be given a value.}; exit 1; }; ]
+#! START_HEADER
+#! START_WB_HEADER
+READER_TYPE MULTI_READER
+WRITER_TYPE MULTI_WRITER
+WRITER_KEYWORD MULTI_DEST
+MULTI_DEST_DATASET null
+#! END_WB_HEADER
+#! START_WB_HEADER
+#! END_WB_HEADER
+#! END_HEADER
+
+LOG_FILENAME "$(FME_MF_DIR)$(WORKSPACE_NAME).log"
+LOG_APPEND NO
+LOG_MAX_FEATURES 200
+LOG_MAX_RECORDED_FEATURES 200
+FME_REPROJECTION_ENGINE FME
+FME_IMPLICIT_CSMAP_REPROJECTION_MODE Auto
+FME_GEOMETRY_HANDLING Enhanced
+FME_STROKE_MAX_DEVIATION 0
+FME_NAMES_ENCODING UTF-8
+FME_BULK_MODE_THRESHOLD 2000
+LAST_SAVE_BUILD "FME 2024.2.4.0 (20250318 - Build 24831 - WIN64)"
+MAPPING_FILE_ID TimeChecker
+# -------------------------------------------------------------------------
+
+MULTI_READER_CONTINUE_ON_READER_FAILURE No
+
+# -------------------------------------------------------------------------
+
+MACRO FME_VIEWER_APP fmedatainspector
+DEFAULT_MACRO WB_CURRENT_CONTEXT
+# -------------------------------------------------------------------------
+Tcl2 proc Creator_CoordSysRemover {} {   global FME_CoordSys;   set FME_CoordSys {}; }
+MACRO Creator_XML     NOT_ACTIVATED
+MACRO Creator_GEOJSON NOT_ACTIVATED
+INCLUDE [ if { {Geometry Object} == {Geometry Object} } {            puts {MACRO Creator_XML *} } ]
+INCLUDE [ if { {Geometry Object} == {GeoJSON} } {            puts {MACRO Creator_GEOJSON *} } ]
+FACTORY_DEF {$(Creator_XML)} CreationFactory    FACTORY_NAME { Creator_XML_Creator }    CREATE_AT_END { no }    OUTPUT { FEATURE_TYPE _____CREATED______        @Geometry(FROM_ENCODED_STRING,<lt>?xml<space>version=<quote>1.0<quote><space>encoding=<quote>US_ASCII<quote><space>standalone=<quote>no<quote><space>?<gt><lt>geometry<space>dimension=<quote>2<quote><gt><lt>null<solidus><gt><lt><solidus>geometry<gt>) }
+FACTORY_DEF {$(Creator_GEOJSON)} CreationFactory    FACTORY_NAME { Creator_GEOJSON_Creator }    CREATE_AT_END { no }    OUTPUT { FEATURE_TYPE _____CREATED______ 	   @SupplyAttributes(ENCODED,__GeoJSONCreatorTemp__,<Unused>)        @JSONGeometry(FROM_ATTRIBUTE,GEOJSON,__GeoJSONCreatorTemp__, PREFER_ERROR_OVER_REJECTION) 	   @RemoveAttributes(__GeoJSONCreatorTemp__) }
+FACTORY_DEF {*} TeeFactory    FACTORY_NAME { Creator_Cloner }    INPUT FEATURE_TYPE _____CREATED______        @Tcl2(Creator_CoordSysRemover)        @CoordSys()    NUMBER_OF_COPIES { 1 }    COPY_NUMBER_ATTRIBUTE { "_creation_instance" }    OUTPUT { FEATURE_TYPE Creator_CREATED        fme_feature_type Creator         }
+FACTORY_DEF * BranchingFactory   FACTORY_NAME "Creator_CREATED Brancher -1 4"   INPUT FEATURE_TYPE Creator_CREATED   TARGET_FACTORY "$(WB_CURRENT_CONTEXT)_CREATOR_BRANCH_TARGET"   MAXIMUM_COUNT None   OUTPUT PASSED FEATURE_TYPE *
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(WB_CURRENT_CONTEXT)_CREATOR_BRANCH_TARGET"   INPUT FEATURE_TYPE *  OUTPUT FEATURE_TYPE *
+# -------------------------------------------------------------------------
+MACRO FeatureReader_OUTPUT_PORTS_ENCODED 
+MACRO FeatureReader_DIRECTIVES EXPOSE_ATTRS_GROUP,,GEOPARQUET_EXPOSE_FORMAT_ATTRS,,NETWORK_AUTHENTICATION,,SUPPORT_LISTS,yes
+# Always provide an INTERACTION, otherwise the factory defaults to ENVELOPE_INTERSECTS
+INCLUDE [if { ( {NONE} == {<Unused>} ) || ( {($INTERACT)} == {} ) } {             puts {MACRO FCTQUERY_INTERACTION_LINE FCTQUERY_INTERACTION NONE};          } else {             puts {MACRO FCTQUERY_INTERACTION_LINE FCTQUERY_INTERACTION "NONE"};          }         ]
+# Consolidate the attribute merge options to what the factory expects
+DEFAULT_MACRO FeatureReader_COMBINE_ATTRS
+INCLUDE [       if { {RESULT_ONLY} == {MERGE} } {          puts "MACRO FeatureReader_COMBINE_ATTRS <Unused>";       } else {          puts "MACRO FeatureReader_COMBINE_ATTRS RESULT_ONLY";       };    ]
+INCLUDE [    puts {DEFAULT_MACRO FeatureReaderDataset_FeatureReader @EvaluateExpression(FDIV,STRING_ENCODED,$(parquet_file$encode),FeatureReader)}; ]
+FACTORY_DEF {*} QueryFactory    FACTORY_NAME { FeatureReader }    INPUT  FEATURE_TYPE Creator_CREATED    $(FCTQUERY_INTERACTION_LINE)    CLIP_TO_INITIATOR_ENVELOPE { "NO" }    COMBINE_ATTRIBUTES  { $(FeatureReader_COMBINE_ATTRS) }    IGNORE_NULLS        { <Unused> }    REJECT_POINTS       { YES }    QUERYFCT_ATTRIBUTE_PREFIX { <Unused> }    COMBINE_GEOMETRY    { RESULT_ONLY }    ENABLE_CACHE        { NO }    QUERYFCT_TABLE_SEPARATOR { SPACE }    READER_TYPE         { GEOPARQUET  }    READER_DATASET      { "$(FeatureReaderDataset_FeatureReader)" }    QUERYFCT_IDS        { "" }    QUERYFCT_IDS_FORMAT WWJD_PARTS    READER_DIRECTIVES   { METAFILE,GEOPARQUET }    QUERYFCT_OUTPUT     { "BASED_ON_CONNECTIONS" }    QUERYFCT_ADD_SCHEMA { "NO" }    QUERYFCT_INITIATOR_FIRST_OUTPUT { "default" }    QUERYFCT_DEDUPE_GEOM YES    CONTINUE_ON_READER_ERROR YES    ORDER_RESULTS { "No" }    QUERYFCT_RESULT_TAGS { $(FeatureReader_OUTPUT_PORTS_ENCODED) }    QUERYFCT_SET_FME_FEATURE_TYPE YES    QUERYFCT_SET_FME_META_ATTRS YES    READER_PARAMS_WWJD     { $(FeatureReader_DIRECTIVES) }    TREAT_READER_PARAM_AMPERSANDS_AS_LITERALS YES    HONOR_INITIATOR_COORDSYS YES    OUTPUT { RESULT FEATURE_TYPE FeatureReader_<OTHER>           }    OUTPUT { READER_ERROR FEATURE_TYPE FeatureReader_<REJECTED>           }
+DEFAULT_MACRO _WB_BYPASS_TERMINATION No
+FACTORY_DEF * TeeFactory FACTORY_NAME FeatureReader_<Rejected> INPUT FEATURE_TYPE FeatureReader_<REJECTED>  NO_LOGGING   OUTPUT FAILED FEATURE_TYPE * @Abort(ENCODED, FeatureReader<space>output<space>a<space><lt>Rejected<gt><space>feature.<space><space>To<space>continue<space>translation<space>when<space>features<space>are<space>rejected<comma><space>change<space><apos>Workspace<space>Parameters<apos><space><gt><space>Translation<space><gt><space><apos>Rejected<space>Feature<space>Handling<apos><space>to<space><apos>Continue<space>Translation<apos>)
+# -------------------------------------------------------------------------
+FACTORY_DEF {*} TeeFactory    FACTORY_NAME { AttributeExposer }    INPUT  FEATURE_TYPE FeatureReader_<OTHER>    OUTPUT { FEATURE_TYPE AttributeExposer_OUTPUT          }
+# -------------------------------------------------------------------------
+FACTORY_DEF {*} DateTimeConverterFactory    FACTORY_NAME { DateTimeConverter }    DATETIME_ATTR { "GDB_FROM_DATE" }    IN_FORMAT { "FME" }    OUT_FORMAT { "%Y-%m-%d<space>%H:%M:%S" }    REPAIR_INPUT { "YES" }    PASSTHROUGH { "NO" }    INPUT  FEATURE_TYPE AttributeExposer_OUTPUT    OUTPUT { OUTPUT FEATURE_TYPE DateTimeConverter_OUTPUT        }    OUTPUT { REJECTED FEATURE_TYPE DateTimeConverter_<REJECTED>        }
+DEFAULT_MACRO _WB_BYPASS_TERMINATION No
+FACTORY_DEF * TeeFactory FACTORY_NAME DateTimeConverter_<Rejected> INPUT FEATURE_TYPE DateTimeConverter_<REJECTED>  NO_LOGGING   OUTPUT FAILED FEATURE_TYPE * @Abort(ENCODED, DateTimeConverter<space>output<space>a<space><lt>Rejected<gt><space>feature.<space><space>To<space>continue<space>translation<space>when<space>features<space>are<space>rejected<comma><space>change<space><apos>Workspace<space>Parameters<apos><space><gt><space>Translation<space><gt><space><apos>Rejected<space>Feature<space>Handling<apos><space>to<space><apos>Continue<space>Translation<apos>)
+# -------------------------------------------------------------------------
+FME_PYTHON_PATH "$(FME_MF_DIR)"
+FACTORY_DEF {*} PythonFactory    FACTORY_NAME { PythonCaller }    GROUP_BY { OBJECTID }    FLUSH_WHEN_GROUPS_CHANGE { No }    INPUT  FEATURE_TYPE DateTimeConverter_OUTPUT    SYMBOL_NAME { FeatureProcessor }    SOURCE_CODE { import<space>fme<lf>from<space>fme<space>import<space>BaseTransformer<lf>import<space>fmeobjects<lf>from<space>collections<space>import<space>defaultdict<lf>from<space>datetime<space>import<space>datetime<lf>import<space>csv<lf>import<space>os<lf><lf>class<space>FeatureProcessor<openparen>BaseTransformer<closeparen>:<lf><space><space><space><space>def<space>__init__<openparen>self<closeparen>:<lf><space><space><space><space><space><space><space><space>self.feature_groups<space>=<space>defaultdict<openparen>list<closeparen><lf><space><space><space><space><space><space><space><space>self.output_folder<space>=<space>fme.macroValues<openbracket><quote>output_csv_folder<quote><closebracket><space><space>#<space>Retrieve<space>the<space>user<space>parameter<space>for<space>the<space>output<space>folder<lf><lf><space><space><space><space>def<space>input<openparen>self<comma><space>feature:<space>fmeobjects.FMEFeature<closeparen>:<lf><space><space><space><space><space><space><space><space>object_id<space>=<space>feature.getAttribute<openparen><quote>OBJECTID<quote><closeparen><lf><space><space><space><space><space><space><space><space>self.feature_groups<openbracket>object_id<closebracket>.append<openparen>feature<closeparen><lf><lf><space><space><space><space>def<space>close<openparen>self<closeparen>:<lf><space><space><space><space><space><space><space><space>for<space>object_id<comma><space>features<space>in<space>self.feature_groups.items<openparen><closeparen>:<lf><space><space><space><space><space><space><space><space><space><space><space><space>#<space>Sort<space>features<space>by<space>GDB_FROM_DATE<space>in<space>ascending<space>order<lf><space><space><space><space><space><space><space><space><space><space><space><space>features.sort<openparen>key=lambda<space>f:<space>datetime.strptime<openparen>f.getAttribute<openparen><quote>GDB_FROM_DATE<quote><closeparen><comma><space><quote>%Y-%m-%d<space>%H:%M:%S<quote><closeparen><closeparen><lf><lf><space><space><space><space><space><space><space><space><space><space><space><space>#<space>Get<space>the<space>feature<space>with<space>the<space>latest<space>GDB_FROM_DATE<lf><space><space><space><space><space><space><space><space><space><space><space><space>latest_feature<space>=<space>features<openbracket>-1<closebracket><lf><lf><space><space><space><space><space><space><space><space><space><space><space><space>#<space>Create<space>a<space>dictionary<space>to<space>store<space>the<space>earliest<space>GDB_FROM_DATE<space>for<space>each<space>attribute<lf><space><space><space><space><space><space><space><space><space><space><space><space>last_changed_dates<space>=<space><opencurly><closecurly><lf><lf><space><space><space><space><space><space><space><space><space><space><space><space>for<space>feature<space>in<space>features:<lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>for<space>attr<space>in<space>feature.getAllAttributeNames<openparen><closeparen>:<lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>if<space>attr<space>not<space>in<space><openbracket><quote>OBJECTID<quote><comma><space><quote>GDB_FROM_DATE<quote><closebracket>:<lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>if<space>feature.getAttribute<openparen>attr<closeparen><space>==<space>latest_feature.getAttribute<openparen>attr<closeparen>:<lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>if<space>attr<space>not<space>in<space>last_changed_dates:<lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>last_changed_dates<openbracket>attr<closebracket><space>=<space>feature.getAttribute<openparen><quote>GDB_FROM_DATE<quote><closeparen><lf><lf><space><space><space><space><space><space><space><space><space><space><space><space>#<space>Add<space>the<space>new<space>attributes<space>to<space>the<space>latest<space>feature<lf><space><space><space><space><space><space><space><space><space><space><space><space>for<space>attr<comma><space>date<space>in<space>last_changed_dates.items<openparen><closeparen>:<lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>latest_feature.setAttribute<openparen>f<quote><opencurly>attr<closecurly>_last_changed<quote><comma><space>date<closeparen><lf><lf><space><space><space><space><space><space><space><space><space><space><space><space>#<space>Determine<space>the<space>basename<space>for<space>the<space>CSV<space>file<lf><space><space><space><space><space><space><space><space><space><space><space><space>basename<space>=<space>latest_feature.getAttribute<openparen><quote>fme_basename<quote><closeparen><lf><space><space><space><space><space><space><space><space><space><space><space><space>if<space>not<space>basename:<lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>basename<space>=<space><quote>default<quote><lf><lf><space><space><space><space><space><space><space><space><space><space><space><space>#<space>Prepare<space>the<space>CSV<space>file<space>path<space>in<space>the<space>specified<space>output<space>folder<lf><space><space><space><space><space><space><space><space><space><space><space><space>csv_file_path<space>=<space>os.path.join<openparen>self.output_folder<comma><space>f<quote><opencurly>basename<closecurly>.csv<quote><closeparen><lf><lf><space><space><space><space><space><space><space><space><space><space><space><space>#<space>Ensure<space>the<space>output<space>folder<space>exists<lf><space><space><space><space><space><space><space><space><space><space><space><space>os.makedirs<openparen>self.output_folder<comma><space>exist_ok=True<closeparen><lf><lf><space><space><space><space><space><space><space><space><space><space><space><space>#<space>Write<space>the<space>attributes<space>including<space>OBJECTID<space>and<space>those<space>with<space>the<space>suffix<space><quote>_last_changed<quote><space>to<space>the<space>CSV<space>file<lf><space><space><space><space><space><space><space><space><space><space><space><space>with<space>open<openparen>csv_file_path<comma><space>mode=<quote>a<quote><comma><space>newline=<quote><quote><comma><space>encoding=<quote>utf-8<quote><closeparen><space>as<space>csv_file:<lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>writer<space>=<space>csv.writer<openparen>csv_file<closeparen><lf><lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>#<space>Include<space>OBJECTID<space>and<space>filter<space>attributes<space>with<space>the<space>suffix<space><quote>_last_changed<quote><lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>last_changed_attrs<space>=<space><openbracket><quote>OBJECTID<quote><closebracket><space>+<space><openbracket>attr<space>for<space>attr<space>in<space>latest_feature.getAllAttributeNames<openparen><closeparen><space>if<space>attr.endswith<openparen><quote>_last_changed<quote><closeparen><closebracket><lf><lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>#<space>Write<space>header<space>if<space>the<space>file<space>is<space>empty<lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>if<space>os.stat<openparen>csv_file_path<closeparen>.st_size<space>==<space>0:<lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>writer.writerow<openparen>last_changed_attrs<closeparen><lf><lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>#<space>Write<space>the<space>feature<space>attributes<lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>row<space>=<space><openbracket>latest_feature.getAttribute<openparen>attr<closeparen><space>for<space>attr<space>in<space>last_changed_attrs<closebracket><lf><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space><space>writer.writerow<openparen>row<closeparen><lf><lf><space><space><space><space><space><space><space><space><space><space><space><space>#<space>Output<space>the<space>latest<space>feature<space>with<space>the<space>new<space>attributes<lf><space><space><space><space><space><space><space><space><space><space><space><space>self.pyoutput<openparen>latest_feature<comma><space>output_tag=<quote>PYOUTPUT<quote><closeparen> }    PY_OUTPUT_TAGS { PYOUTPUT <Rejected> }    OUTPUT { PYOUTPUT FEATURE_TYPE PythonCaller_OUTPUT         }    OUTPUT { <Rejected> FEATURE_TYPE PythonCaller_<Rejected>         }
+FACTORY_DEF * TeeFactory   FACTORY_NAME "PythonCaller OUTPUT Transformer Output Nuker"   INPUT FEATURE_TYPE PythonCaller_OUTPUT
+DEFAULT_MACRO _WB_BYPASS_TERMINATION No
+FACTORY_DEF * TeeFactory FACTORY_NAME PythonCaller_<Rejected> INPUT FEATURE_TYPE PythonCaller_<Rejected>  NO_LOGGING   OUTPUT FAILED FEATURE_TYPE * @Abort(ENCODED, PythonCaller<space>output<space>a<space><lt>Rejected<gt><space>feature.<space><space>To<space>continue<space>translation<space>when<space>features<space>are<space>rejected<comma><space>change<space><apos>Workspace<space>Parameters<apos><space><gt><space>Translation<space><gt><space><apos>Rejected<space>Feature<space>Handling<apos><space>to<space><apos>Continue<space>Translation<apos>)
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * RoutingFactory FACTORY_NAME "Destination Feature Type Routing Correlator"   COMMAND_PARM_EVALUATION SINGLE_PASS   INPUT FEATURE_TYPE *   FEATURE_TYPE_ATTRIBUTE __wb_out_feat_type__   OUTPUT ROUTED FEATURE_TYPE *    OUTPUT NOT_ROUTED FEATURE_TYPE __nuke_me__ @Tcl2("FME_StatMessage 818059 [FME_GetAttribute fme_template_feature_type] 818060 818061 fme_warn")
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory   FACTORY_NAME "Final Output Nuker"   INPUT FEATURE_TYPE __nuke_me__
+
