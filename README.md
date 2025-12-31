@@ -1,8 +1,8 @@
-# Data and AI Engineering - Final Project Template
+# Data and AI Engineering - Baseline data quality
 
-## Course Overview
+## This repository contains the data pipeline build as assignment for the course Data and AI Engineering at the EQI
 
-This repository serves as a template for your 12-week Data and AI Engineering final project. You will build a complete data pipeline within your own business context, demonstrating end-to-end data engineering and AI capabilities.
+The repository contains parts of a data pipeline. The pipeline is designed to calculate the completeness and timeliness of a set of tables. For those who stumbled on this repository in search for a complete solution, we have to dissappoint you. Parts of the solution are implemented in Safe Software's FME. 
 
 ## Project Structure
 
@@ -10,69 +10,29 @@ This repository serves as a template for your 12-week Data and AI Engineering fi
 data-and-ai-engineering/
 ├── README.md                 # This file - project overview
 ├── requirements.txt          # Ddependencies
-├── config/                   # Configuration files
-├── data/                     # Data storage and management
+├── data/                     # Data examples
 ├── src/                      # Source code modules
-├── sql/                      # Database scripts and queries
-├── docs/                     # Project documentation
-├── tests/                    # Testing suite
-└── deployment/               # Infrastructure and deployment
+└── docs/                     # Project documentation
 ```
 
-## Getting Started
+## Design starting points
 
-This template repository contains example e-commerce data and code to demonstrate the recommended project structure. **Replace the example content with your own project while using this folder structure as a starting point.** Deviations to the structure are allowed, depending on your project needs.
+The pipeline is the result of a course assignment. Some design choises are made with educational priorities instead of good design. We check on two base data quaality requirements: Completeness and timeliness.
 
-### Step 1: Setup
-1. Clone this template and create your own repository
-2. Review the folder structure and example files to understand the layout
+Completeness is defined by the amount of NULL-values in the table. Actuality is defined using the ESRI-archiving columns. The concept is explained in the accompanying paper.
 
-### Step 2: Planning
-3. Choose your business domain and data problem
-4. Complete the project proposal in `docs/project-proposal.md`
-5. Get instructor approval before proceeding
+### Data Ingestion
+Data Ingestion is done with FME. The repository contains some screenshots of the process and the Python code used within FME's Python creators and Python callers.
 
-### Step 3: Implementation
-6. Replace sample data in `data/raw/` with your own datasets
-7. Rewrite the Python modules in `src/` for your specific use case
-8. Update configuration files in `config/` for your data sources
-9. Modify `requirements.txt` to include only the libraries you need
+### Data Procesing
 
-### Step 4: Final Deliverable
-10. Remove all template content, instructions, and example code
-11. Ensure your repository contains only your project implementation
+We aimed to do most of the data processing in Python. We did eventually have to use FME for hardware reasons.
+
+### Data Validation
+Most data validation is done in ArcGIS Portal, but there was some Python used to create an excel-file for data exploration.
 
 
-## Project Requirements
-
-Your final project must include:
-
-**Required Components:**
-- **At least 3 data engineering pipeline steps** from the list below
-- **Executive Report**: Management-focused summary (max 3000 words)
-- **Technical Documentation**: Clear documentation of your implementation
-- **At least 1 Test**: Unit test or integration test for your code
-
-**Data Engineering Pipeline Steps (choose at least 3):**
-1. **Data Ingestion**: Extract data from various sources
-2. **Data Processing**: Clean, transform, and validate data
-3. **Data Storage**: Design and implement appropriate storage solutions
-4. **Data Pipeline**: Automated, scheduled data workflows
-5. **Analytics/ML**: Generate insights or build predictive models
-6. **Monitoring**: Track pipeline performance and data quality
-
-## Evaluation Criteria
-
-- **Technical Implementation** (40%): Model quality, code quality, architecture, and best practices
-- **Business Value** (25%): Relevance and impact of your solution
-- **Data and AI Engineering** (20%): Pipeline design, security, scalability, and reliability
-- **Documentation** (15%): Clear documentation and presentations
-
-## Support
-
-- Use weekly check-ins to track progress
-- Submit your project proposal for approval
 
 ## License
 
-This template is provided for educational purposes.
+This is the result of a course. The resulting lines of codes do work. However, we do not reccomend using this project in a production setting. Design choises have been made for educational purposes and adaptations have been made in later stages to make it work. The authors learned a lot and would not design it this way a second time.

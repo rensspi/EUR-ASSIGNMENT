@@ -17,7 +17,7 @@ import os
 # Input parameters 
  
 parquet_folder = r"K:\CentraalDatamanagement\PDC\01_WIP\01_Algemeen\X_000002_DatakwaliteitBaseline\DAMO_H_parquet"
-output_map = r"K:\CentraalDatamanagement\PDC\01_WIP\01_Algemeen\X_000002_DatakwaliteitBaseline\Completness_Output_JSON"
+output_map = r"K:\CentraalDatamanagement\PDC\01_WIP\01_Algemeen\X_000002_DatakwaliteitBaseline\70_Resultaten\Completeness"
 
 def total_percentage_trues(df):
     '''
@@ -25,7 +25,8 @@ def total_percentage_trues(df):
     
     :param df: Dataframe for which the ratio needs to be calculated
     '''
-    total_trues = df.sum().sum().compute()
+    df_clean = df.drop(["OBJECTID"], axis = 1)
+    total_trues = df_clean.sum().sum().compute()
 
     nr_rows = df.shape[0].compute()
     nr_cols = len(df.columns)
@@ -140,6 +141,14 @@ def main():
     parquets = glob.glob("{}\*.parquet".format(parquet_folder))
 
     for parquet in parquets:
+    #    print(parquet)
+    #    parquet_name = os.path.split(parquet)[1]
+    #    pq_completeness = completeness_for_parquet(parquet)
+    #    json_naam = "{}_dict.json".format(parquet_name.removesuffix(".parquet"))
+    #    os_naam_incpad = os.path.join(output_map, json_naam)
+    #    write_dictionary(os_naam_incpad, pq_completeness)
+
+
         try:
             print(parquet)
             parquet_name = os.path.split(parquet)[1]

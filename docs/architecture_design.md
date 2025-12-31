@@ -2,36 +2,16 @@
 
 ## System Overview
 
-```
-[Data Sources] → [Ingestion] → [Processing] → [Storage] → [Analytics/ML]
-```
+The PDF-file ResultingDatapipeline in this folder gives an overview of the resulting data pipeline
 
-## Components
+### Data Ingestion
+We read the history tables via an Oracle Spatial connection in FME and wrote the data as geoParquet files
 
-### Data Ingestion Layer
-- API connectors for external data sources
-- File processors for CSV/JSON data
-- Database extractors
+### Data Processing
+The pipeline splits up in the two tests we plan. We tried to do the processing in Python, but eventually we used FME for the Timeliness tests. We saved the results as files: JSON and CSV's. The idea is these results can be reused in a later stage by data scientists
 
-### Data Processing Layer  
-- Data validation and quality checks
-- Data transformation and cleaning
-- Feature engineering
+### Data Analysing
+Eventually the data processing took more time than anticipated, so we didn't have as much time as we wanted to analyse the results. We did some first analyses using Excel and ArcGIS Pro. We provide scripting to present the results in an excel file. This helps with sharing the results to our data stewards.
 
-### Storage Layer
-- Raw data storage (data lake)
-- Processed data (data warehouse)
-- Model artifacts and metadata
-
-### Analytics Layer
-- Business intelligence dashboards
-- Machine learning models
-- Reporting and alerts
-
-## Technology Stack
-
-- **Python**: Primary programming language
-- **SQL**: Data querying and transformation
-- **PostgreSQL**: Relational database
-- **Apache Airflow**: Workflow orchestration
-- **Docker**: Containerization
+### Data Visualisation
+Data Visualisation is done in ArcGIS Portal. We are GIS-experts so we wanted to show some geographical results.ss

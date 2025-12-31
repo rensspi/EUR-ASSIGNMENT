@@ -1,0 +1,6 @@
+OBJECTID;ATTRIBUUT1;ATTRIBUUT2;ATTRIBUUT3;ATTRIBUUT4;ATTRIBUUT5
+1;False;True;True;True;True
+2;True;False;False;False;True
+3;True;True;False;True;True
+4;True;True;True;False;True
+5;True;True;True;False;True
